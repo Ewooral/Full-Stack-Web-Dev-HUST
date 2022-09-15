@@ -22,3 +22,9 @@
 * See a brief log of commits you've made
 
 	 git log --oneline
+
+
+* revert back to older or previous commits 
+
+	 git checkout <commit> <file>
+
