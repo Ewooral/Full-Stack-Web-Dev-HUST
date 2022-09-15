@@ -29,4 +29,11 @@ javascript engine
   semantic versioning rules
 - makes your build reproducible which means that it's way easier to share with other developers
 
+### Start a new Project 
+* initialise package.json file for your project
+	
+	npm init
 
+* To install an npm package on which your project is directly dependent on use:
+
+	npm install <package name> --save-dev
