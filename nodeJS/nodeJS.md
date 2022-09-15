@@ -23,3 +23,10 @@ javascript engine
 
 
 
+# Package.json
+- serves as a documentation for what packages your project depends on
+- allows you to specify the versions of a package that your project can use using 
+  semantic versioning rules
+- makes your build reproducible which means that it's way easier to share with other developers
+
+
