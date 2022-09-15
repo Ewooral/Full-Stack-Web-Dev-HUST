@@ -29,6 +29,6 @@
 
 	 git log --oneline
 
-* revert back to older or previous commits
+* revert back to older or previous commits or version of a file
 
          git checkout <commit> <file>
