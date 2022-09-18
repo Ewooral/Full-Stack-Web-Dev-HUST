@@ -1,8 +1,8 @@
 git add .
-echo "Adding current files to our git repository"
+echo "Adding current files to git repository"
 echo
 
-echo "kindly add your git message: "
+echo "kindly add your git commit message: "
 read varname
 git commit -m "$varname"
 echo "files currently commited to the stage area"
