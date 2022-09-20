@@ -1,10 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import { React, Component } from 'react';
 
+class Welcome extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Hi, Welcome!</h1>
+      </div>
+
+    )
+  }
+}
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+
+        <Welcome />
+        
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -22,4 +36,5 @@ function App() {
   );
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default App;
