@@ -1,17 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import { React, Component } from 'react';
+import { Component } from 'react';
 
 class Welcome extends Component {
   render() {
     return (
       <div>
         <h1 className="text-3xl font-bold underline">Hi, Welcome!</h1>
+       <h1 className="text-3xl">Hello</h1>
       </div>
 
     )
   }
 }
+
 function App() {
   return (
     <div className="App">
