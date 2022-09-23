@@ -1,43 +1,24 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
+import {Navbar, NavbarBrand} from 'reactstrap';
 
-class Welcome extends Component {
+
+class App extends Component{
   render() {
-    return (
-      <div>
-        <h1 className="text-3xl font-bold underline">Hi, Welcome!</h1>
-       <h1 className="text-3xl">Hello</h1>
-      </div>
+    return(
+        <div className="App">
+          <Navbar className="primary">
+            <div className="container">
+              <NavbarBrand href="/">
+                Ristorante Con Fusion
+              </NavbarBrand>
+            </div>
+          </Navbar>
 
+        </div>
     )
   }
 }
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-
-        <Welcome />
-
-
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
 
 export default App;
