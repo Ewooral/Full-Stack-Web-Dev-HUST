@@ -3,7 +3,10 @@ import './App.css';
 import { Component } from 'react';
 import {Navbar, NavbarBrand} from 'reactstrap';
 
+// functional component
 
+
+// class component
 class App extends Component{
   render() {
     return(
