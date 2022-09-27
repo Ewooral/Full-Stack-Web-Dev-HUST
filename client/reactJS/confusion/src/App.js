@@ -2,6 +2,7 @@
 import './App.css';
 import { Component } from 'react';
 import {Navbar, NavbarBrand} from 'reactstrap';
+import Menu from './components/Menu.js';
 
 // functional component
 
