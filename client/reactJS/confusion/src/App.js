@@ -15,8 +15,10 @@ class App extends Component{
           <Navbar className="primary">
             <div className="container">
               <NavbarBrand href="/">
-                Ristorante ConFusion
+              
+                MY RESTAURANT
                 <Menu />
+
               </NavbarBrand>
             </div>
           </Navbar>
