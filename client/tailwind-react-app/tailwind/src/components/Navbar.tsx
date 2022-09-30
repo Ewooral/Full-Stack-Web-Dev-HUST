@@ -4,14 +4,14 @@ import Logo from '../assets/img/logo.svg';
 const Navbar = () => {
   return (
     <>
-      <nav className="relative container p-6">
-        <div className="flex items-center justify-around">
+      <nav className="relative  p-6">
+        <div className="flex items-center justify-evenly">
+
           {/* logo */}
           <div className="pt-2">
             <img src={Logo} alt="logo" />
           </div>
 
-          <div className='bg'></div>
 
           {/* Menu Items */}
           <div className="hidden md:flex space-x-6">

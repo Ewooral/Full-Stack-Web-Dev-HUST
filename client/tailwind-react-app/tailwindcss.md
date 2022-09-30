@@ -37,4 +37,13 @@ Add the paths to all of your template files in your
 	npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
 
 
+## Bonus
+* Enable VScode autocomplete for CSS files
 
+If you have PostCSS Language Support 
+installed add the following config 
+in your settings.
+
+    "emmet.includeLanguages": {
+        "postcss": "css"
+      }
