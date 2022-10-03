@@ -1,5 +1,4 @@
 import Logo from '../assets/img/logo.svg';
-import Hero from './Hero';
 
 const Navbar = () => {
   return (
@@ -39,11 +38,6 @@ const Navbar = () => {
           </a>
         </div>
       </nav>
-
-      {/* HERO SECTION */}
-      <section id="hero">
-        <Hero />
-      </section>
     </>
   );
 };

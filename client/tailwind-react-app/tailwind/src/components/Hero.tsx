@@ -1,8 +1,9 @@
 import React from 'react';
+import Leftimage from '../assets/img/illustration-intro.svg';
 
 const Hero = () => {
   return (
-    <>
+    <section id="hero">
       {/* Flex container */}
       <div
         className="container flex flex-col-reverse 
@@ -21,9 +22,24 @@ const Hero = () => {
             Manage makes it simple for software teams to plan day-to-day tasks while keeping the
             larger team goals in view.
           </p>
+
+          <div className="flex justify-center md:justify-start">
+            <a
+              href="#"
+              className=" p-3 px-6 pt-2 text-white bg-brightRed 
+                                      rounded-full baseline hover:bg-brightRedLight"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+
+        {/* IMAGE */}
+        <div className="md:w-1/2">
+          <img src={Leftimage} alt="" />
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
