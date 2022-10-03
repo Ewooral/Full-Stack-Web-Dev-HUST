@@ -1,20 +1,18 @@
-import React from 'react';
 import Logo from '../assets/img/logo.svg';
+import Hero from './Hero';
 
 const Navbar = () => {
   return (
     <>
       <nav className="relative  p-6">
         <div className="flex items-center justify-evenly">
-
           {/* logo */}
           <div className="pt-2">
             <img src={Logo} alt="logo" />
           </div>
 
-
           {/* Menu Items */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden space-x-6 md:flex">
             <a href="#" className="hover:text-darkGrayishBlue">
               Pricing
             </a>
@@ -34,13 +32,18 @@ const Navbar = () => {
           {/* Button */}
           <a
             href="#"
-            className="p-3 px-6 pt-2 text-white bg-brightRed 
-            rounded-full baseline hover:bg-brightRedLight"
+            className="hidden p-3 px-6 pt-2 text-white bg-brightRed 
+            rounded-full baseline hover:bg-brightRedLight md:block "
           >
             Get Started
           </a>
         </div>
       </nav>
+
+      {/* HERO SECTION */}
+      <section id="hero">
+        <Hero />
+      </section>
     </>
   );
 };

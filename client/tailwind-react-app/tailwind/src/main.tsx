@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-
-
-const Root = document.getElementById('root')
-ReactDOM.createRoot( Root as HTMLElement).render(
+const Root = document.getElementById('root');
+ReactDOM.createRoot(Root as HTMLElement).render(
   <>
     <App />
   </>
-)
+);
