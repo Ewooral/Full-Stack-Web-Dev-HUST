@@ -1,22 +1,31 @@
 import './App.css';
+import { Component } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import Increment from './components/class/Increment';
 
-function App() {
-  return (
-    <>
-      {/* NAVBAR SECTION */}
-      <Navbar />
 
-      {/* HERO SECTION */}
-      <Hero />
+class App extends Component{
+  
+  render(){
+    return (
+      <div>
+        {/* NAVBAR SECTION */}
+        <Navbar />
 
-      {/* FEATURES SECTION */}
-      <Features />
-      
-    </>
-  );
+        {/* HERO SECTION */}
+        <Hero />
+
+        {/* FEATURES SECTION */}
+        <Features />
+
+        {/* TRY Feature */}
+        <Increment />
+      </div>
+    );
+  }
+  
 }
 
 export default App;
