@@ -23,7 +23,7 @@ class App extends Component {
   renderSomething(){
     return(
       <div className="">
-        
+
       </div>
     )
   }
@@ -56,6 +56,16 @@ class App extends Component {
   componentDidUpdate() {
     console.log('componentdidupdate works fine!')
   }
+
+  shouldComponentUpdate(){
+      return(true)
+  }
+
+  
+  
+  // getSnapshotBeforeUpdate(){
+
+  // }
 
 }
 
