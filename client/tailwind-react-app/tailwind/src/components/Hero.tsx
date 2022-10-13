@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Leftimage from '../assets/img/illustration-intro.svg';
 
-const Hero = () => {
+const Hero = ({ get_started }:
+  { get_started: ReactNode }) => {
   return (
     <section id="hero">
       {/* Flex container */}
@@ -29,7 +30,7 @@ const Hero = () => {
               className=" p-3 px-6 pt-2 text-white bg-brightRed 
                                       rounded-full baseline hover:bg-brightRedLight"
             >
-              Get Started
+              {get_started}
             </a>
           </div>
         </div>

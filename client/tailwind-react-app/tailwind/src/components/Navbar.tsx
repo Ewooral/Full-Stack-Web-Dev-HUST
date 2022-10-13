@@ -1,6 +1,17 @@
+import { ReactElement } from 'react';
 import Logo from '../assets/img/logo.svg';
 
-const Navbar = () => {
+const Navbar = (
+  { navbutton, menu1, menu2, menu3, menu4, menu5, }:
+    {
+      navbutton: string, 
+      menu1: string,
+      menu2: string, 
+      menu3: string
+      menu4: string
+      menu5: string
+    }): ReactElement =>{
+
   return (
     <>
       <nav className="relative  p-6">
@@ -13,19 +24,19 @@ const Navbar = () => {
           {/* Menu Items */}
           <div className="hidden space-x-6 md:flex">
             <a href="#" className="hover:text-darkGrayishBlue">
-              Pricing
+              {menu1}
             </a>
             <a href="#" className="hover:text-darkGrayishBlue">
-              Product
+              {menu2}
             </a>
             <a href="#" className="hover:text-darkGrayishBlue">
-              About Us
+              {menu3}
             </a>
             <a href="#" className="hover:text-darkGrayishBlue">
-              Careers
+              {menu4}
             </a>
             <a href="#" className="hover:text-darkGrayishBlue">
-              Community
+              {menu5}
             </a>
           </div>
           {/* Button */}
@@ -34,7 +45,7 @@ const Navbar = () => {
             className="hidden p-3 px-6 pt-2 text-white bg-brightRed 
             rounded-full baseline hover:bg-brightRedLight md:block "
           >
-            Get Started
+            {navbutton}
           </a>
         </div>
       </nav>

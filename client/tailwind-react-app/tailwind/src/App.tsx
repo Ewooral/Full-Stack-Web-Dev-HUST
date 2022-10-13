@@ -6,16 +6,25 @@ import Features from './components/Features';
 import Increment from './components/class/Increment';
 
 
-class App extends Component{
-  
-  render(){
+class App extends Component {
+
+  render() {
     return (
       <div>
         {/* NAVBAR SECTION */}
-        <Navbar />
+        <Navbar
+          navbutton="Get Started"
+          menu1="Pricing"
+          menu2="Product"
+          menu3="About Us"
+          menu4="Careers"
+          menu5="Community"
+
+
+        />
 
         {/* HERO SECTION */}
-        <Hero />
+        <Hero get_started="Get Started" />
 
         {/* FEATURES SECTION */}
         <Features />
@@ -25,7 +34,7 @@ class App extends Component{
       </div>
     );
   }
-  
+
 }
 
 export default App;
