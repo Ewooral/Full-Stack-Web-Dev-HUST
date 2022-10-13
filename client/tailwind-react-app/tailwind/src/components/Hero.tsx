@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
 import Leftimage from '../assets/img/illustration-intro.svg';
 
-const Hero = ({ get_started }:
-  { get_started: ReactNode }) => {
+const Hero = ({ get_started }: { get_started: ReactNode }) => {
   return (
     <section id="hero">
       {/* Flex container */}

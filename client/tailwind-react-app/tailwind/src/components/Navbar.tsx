@@ -1,17 +1,21 @@
 import { ReactElement } from 'react';
 import Logo from '../assets/img/logo.svg';
 
-const Navbar = (
-  { navbutton, menu1, menu2, menu3, menu4, menu5, }:
-    {
-      navbutton: string, 
-      menu1: string,
-      menu2: string, 
-      menu3: string
-      menu4: string
-      menu5: string
-    }): ReactElement =>{
-
+const Navbar = ({
+  navbutton,
+  menu1,
+  menu2,
+  menu3,
+  menu4,
+  menu5
+}: {
+  navbutton: string;
+  menu1: string;
+  menu2: string;
+  menu3: string;
+  menu4: string;
+  menu5: string;
+}): ReactElement => {
   return (
     <>
       <nav className="relative  p-6">

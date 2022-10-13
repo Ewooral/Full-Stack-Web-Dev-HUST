@@ -4,10 +4,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Increment from './components/class/Increment';
-
+import DefaultProps from './components/functional/DefaultProps';
 
 class App extends Component {
-
   render() {
     return (
       <div>
@@ -19,8 +18,6 @@ class App extends Component {
           menu3="About Us"
           menu4="Careers"
           menu5="Community"
-
-
         />
 
         {/* HERO SECTION */}
@@ -30,11 +27,13 @@ class App extends Component {
         <Features />
 
         {/* TRY Feature */}
-        <Increment />
+        {/* <Increment /> */}
+
+        {/* TYPESCRIPT WITH REACT TUTORIAL */}
+        <DefaultProps />
       </div>
     );
   }
-
 }
 
 export default App;

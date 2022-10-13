@@ -1,37 +1,109 @@
-import { ReactElement, ReactNode } from "react";
+import { Component, ReactElement, ReactNode, useState } from 'react';
 
 // CONVENTIONAL PROPS
-function Heading({ title }: {title: string}){
-    return <h1>{title}</h1>
-}
+const Heading = ({ title }: { title: string }): ReactElement | null => {
+    return <h1>{title}</h1>;
+};
 
+const HeadingWithContent = ({ children }: { children: ReactNode }): ReactElement | null => {
+    return <div>{children}</div>;
+};
+
+// DEFAULT PROPS
 const defaultContainerProps = {
     heading: <strong>My Heading</strong>
 };
 
+// Merge two types together to create a composite type
 type ContainerPops = { children: ReactNode } & typeof defaultContainerProps;
 
-function Container({
-    heading,
-    children,
-
-}: ContainerPops): ReactElement {
+const Container = ({ heading, children }: ContainerPops): ReactElement => {
     return (
         <div>
             <h1>{heading}</h1>
             {children}
         </div>
-    )
-}
+    );
+};
 
 Container.defaultProps = defaultContainerProps;
 
-
-// RENDER
-function DefaultProps(){
-    return(
+// FUNCTIONAL PROPS
+const TextWithNumber = ({
+    header,
+    children
+}: {
+    header?: (num: number) => ReactNode;
+    children: (num: number) => ReactNode;
+}) => {
+    const [state, setState] = useState<number>(1);
+    return (
         <div>
-            <Heading title="Hello, Everyone!"></Heading>
+            {header && <h1>{header?.(state)}</h1>}
+            <div>{children(state)}</div>
+            <div>
+                <button className="bg-red-500 text-white p-3 rounded-2xl " onClick={() => setState(state + 1)}>
+                    Add
+                </button>
+            </div>
         </div>
+    );
+};
+
+
+// GENERIC FUNCTIONS
+// LIST
+
+function List<ListItem>({
+    items,
+    render,
+}: {
+    items: ListItem[],
+    render: (item: ListItem) => ReactNode
+}) {
+    return (
+        <ul className='p-2 mt-3 '>
+            {items.map((item, id) => (
+                <li key={id}>
+                    {render(item)}
+                </li>
+            )
+            )}
+
+        </ul>
     )
 }
+
+ // CLASS COMPONENT
+ class MyContainer extends Component{
+    
+ }
+
+
+
+
+
+
+
+
+// RENDER
+const DefaultProps = () => {
+    return (
+        <div
+            className="container px-4 mx-auto mt-10 
+                            space-y-12 md:space-y-0 md:flex-row"
+        >
+            <Heading title="Hello, Everyone!"></Heading>
+            <HeadingWithContent>
+                <strong>Hi!</strong>
+            </HeadingWithContent>
+            <Container>Foo</Container>
+            <TextWithNumber header={(num: number) => <span>Header {num}</span>}>
+                {(num: number) => <div>Today's number is {num} </div>}
+            </TextWithNumber>
+            <List items={['Jack', 'Sadie', 'Oso']} render={(item: string) => <div>{item.toLowerCase()}</div>}></List>
+        </div>
+    );
+};
+
+export default DefaultProps;
