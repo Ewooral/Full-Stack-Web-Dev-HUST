@@ -3,8 +3,8 @@ import { Component } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
-import Increment from './components/class/Increment';
-import DefaultProps from './components/functional/DefaultProps';
+// import Increment from './components/class/Increment';
+import DefaultProps from './components/TS/DefaultProps';
 
 class App extends Component {
   render() {
@@ -30,10 +30,12 @@ class App extends Component {
         {/* <Increment /> */}
 
         {/* TYPESCRIPT WITH REACT TUTORIAL */}
-        <DefaultProps />
+        <div className="p-5 lg:ml-7 bg-slate-200">
+          <DefaultProps />
+        </div>
       </div>
     );
   }
-}
+} 
 
 export default App;
