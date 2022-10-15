@@ -25,17 +25,17 @@ class App extends Component {
     console.log('Render method is invoked!');
 
     return (
-      <div className="container ">
+      <div className=" p-2 flex  space-x-11">
         <button
           onClick={() => {
             this.onChangeClick(this.state.value);
           }}
-          className="paintRed">
+          className="border-white ">
           <p>Click</p>
           {this.state.value}
         </button>
 
-        <article>
+        <article className="container">
           <GetPosts />
         </article>
       </div>
