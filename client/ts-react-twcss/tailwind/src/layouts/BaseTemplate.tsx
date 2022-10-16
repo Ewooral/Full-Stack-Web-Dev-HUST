@@ -6,9 +6,11 @@ import Features from '../features/Features';
 // import Increment from './components/class/Increment';
 import DefaultProps from '../features/TS/DefaultProps';
 import UseState from '../hooks/UseState';
+import {  Route, RouterProvider, createBrowserRouter, Router } from 'react-router-dom'
 
 class BaseTemp extends Component {
   render() {
+   
     return (
       <div className="container-fluid ">
         {/* NAVBAR SECTION */}
@@ -20,6 +22,7 @@ class BaseTemp extends Component {
           menu4="Careers"
           menu5="Community"
         />   
+        
 
         {/* HERO SECTION */}
         <Hero get_started="Get Started" />
@@ -44,5 +47,7 @@ class BaseTemp extends Component {
     );
   }
 }
+
+
 //home/fspoon/Devops/projects/node_modules/typescript
 export default BaseTemp;
