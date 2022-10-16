@@ -87,11 +87,7 @@ class MyHeader extends Component<
 // RENDER
 const DefaultProps = () => {
   return (
-    <div
-      className="container mx-auto 
-
-                            space-y-12 md:space-y-0 md:flex-row"
-    >
+    <div className="">
       <Heading title="Hello, Everyone!"></Heading>
       <HeadingWithContent>
         <strong>Hi!</strong>
