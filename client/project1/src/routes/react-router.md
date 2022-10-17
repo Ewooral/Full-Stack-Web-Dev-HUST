@@ -33,6 +33,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 This first route is what we often call the `root route`since the rest of our routes will render inside of it. It will serve as the root layout of the UI, we'll have nested layouts as we get farther along.
 
 
+
+
+........................................................................................................
 # The Root Route
 Let's add the global layout for this app.
 
@@ -81,4 +84,25 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
+
+
+
+............................................................................................
+# Handling Not Found Errors
+It's always a good idea to know how your app responds to errors early in the project because we all write far more bugs than features when building a new app! Not only will your users get a good experience when this happens, but it helps you during development as well.
+
+We added some links to this app, let's see what happens when we click them?
+
+👉 Click one of the sidebar names
+
+screenshot of default React Router error element
+Gross! This is the default error screen in React Router, made worse by our flex box styles on the root element in this app 😂.
+
+Anytime your app throws an error while rendering, loading data, or performing data mutations, React Router will catch it and render an error screen. Let's make our own error page.
+
+👉 Create an error page component
+
+touch src/error-page.jsx
+
 
