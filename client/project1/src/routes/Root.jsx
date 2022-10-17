@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 const Root = () => {
   return (
     <>
       <div className="sidebar">
         <h1>React Router Contacts</h1>
-        <div>
+        <div className="flex space-x-4 ">
           <form id="search-form" role="search">
             <input
               id="q"
@@ -17,17 +18,19 @@ const Root = () => {
           </form>
 
           <form method="post">
-            <button type="submit">New</button>
+            <button className="hover:bg-blue-300 hover:text-white" type="submit">
+              New
+            </button>
           </form>
         </div>
 
         <nav>
           <ul>
             <li>
-              <a href={`contacts/1`}>Your Name</a>
+              <Link to="contacts/:contactId">Contact Page1</Link>
             </li>
             <li>
-              <a href={`contacts/2`}>Your Friend</a>
+              <Link to="contacts/:contactId">Contact Page2</Link>
             </li>
           </ul>
         </nav>
