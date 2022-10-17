@@ -103,6 +103,65 @@ Anytime your app throws an error while rendering, loading data, or performing da
 
 👉 Create an error page component
 
-touch src/error-page.jsx
+* touch src/error-page.jsx
+
+`
+import { useRouteError } from "react-router-dom";
+
+export default function ErrorPage() {
+  const error = useRouteError();
+  console.error(error);
+
+  return (
+    <div id="error-page">
+      <h1>Oops!</h1>
+      <p>Sorry, an unexpected error has occurred.</p>
+      <p>
+        <i>{error.statusText || error.message}</i>
+      </p>
+    </div>
+  );
+}
+`
+👉 Set the <ErrorPage> as the errorElement on the root route
+
+/* previous imports */
+import ErrorPage from "./error-page";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+  },
+]);
+
+
+
+.....................................................................................................
+# The Contact Route UI
+Instead of a 404 "Not Found" page, we want to actually render something at the URLs we've linked to. For that, we need to make a new route.
+
+👉 Create the contact route module
+
+touch src/routes/contact.jsx
+
+
+
+
+
+
+
+
+
+
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
 
 
