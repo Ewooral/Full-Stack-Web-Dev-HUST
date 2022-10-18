@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 const Root = () => {
   return (
     <>
@@ -27,15 +27,19 @@ const Root = () => {
         <nav>
           <ul>
             <li>
-              <Link to="contacts/:contactId">Contact Page1</Link>
+              <Link to="contacts/1">Contact Page1</Link>
             </li>
             <li>
-              <Link to="contacts/:contactId">Contact Page2</Link>
+              <Link to="contacts/2">Contact Page2</Link>
             </li>
           </ul>
         </nav>
       </div>
-      <div id="detail"></div>
+
+      {/* Render Contact Page here */}
+      <div id="detail">
+        <Outlet />
+      </div>
     </>
   );
 };
