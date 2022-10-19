@@ -29,8 +29,7 @@ export default function Contact() {
             <i>No Name</i>
           )}{' '}
           <Favorite contact={contact} />
-        </h1>
-
+        </h1>{' '}
         {contact.twitter && (
           <p>
             <a target="_blank" href={`https://twitter.com/${contact.twitter}`} rel="noreferrer">
@@ -38,9 +37,7 @@ export default function Contact() {
             </a>
           </p>
         )}
-
         {contact.notes && <p>{contact.notes}</p>}
-
         <div>
           <Form action="edit">
             <button type="submit">Edit</button>
@@ -82,12 +79,3 @@ function Favorite({ contact }) {
     </Form>
   );
 }
-
-const Meet = () => {
-  return (
-    <>
-      <div className="">who</div>
-      <button></button>
-    </>
-  );
-};
