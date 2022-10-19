@@ -44,7 +44,7 @@ const Root = () => {
                       </>
                     ) : (
                       <i>No Name</i>
-                    )}{" "}
+                    )}{' '}
                     {contact.favorite && <span>★</span>}
                   </Link>
                 </li>
