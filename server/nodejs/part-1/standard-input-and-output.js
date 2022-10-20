@@ -6,6 +6,7 @@ const questions = [
 ];
 
 const ask = (i = 0) => {
+    // standard output
     process.stdout.write(`\n\n\n ${questions[i]}`);
     process.stdout.write(` > `);
 };
@@ -13,7 +14,7 @@ const ask = (i = 0) => {
 ask();
 
 
-// TAKE IN DATA AS INPUT AND OUTPUT IT
+// TAKE IN DATA AS INPUT AND OUTPUT IT STANDARD INPUT
 const answers = [];
 process.stdin.on("data", data => {
     // process.stdout.write(`\n\n ${data.toString().trim()} \n\n`);
