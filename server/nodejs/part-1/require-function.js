@@ -3,3 +3,7 @@
 const Path = require('path'); // this is how the require function is instantiated
 const show = console.log; 
 show(`The file name is ${Path.basename(__filename)}`)
+
+const path = require('path');
+console.log(`The file name is ${path.basename(__filename)}`);
+console.log(require)
