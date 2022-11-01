@@ -8,7 +8,7 @@ const questions = [
 const ask = (i = 0) => {
     // standard output
     process.stdout.write(`\n\n\n ${questions[i]}`);
-    process.stdout.write(` > `);
+    
 };
 
 ask();
@@ -17,17 +17,18 @@ ask();
 // TAKE IN DATA AS INPUT AND OUTPUT IT STANDARD INPUT
 const answers = [];
 process.stdin.on("data", data => {
-    // process.stdout.write(`\n\n ${data.toString().trim()} \n\n`);
+    
     answers.push(data.toString().trim());
 
     if (answers.length < questions.length) {
         ask(answers.length);
 
     } else {
-        process.exit();
+        process.exit();    
     }
 
 })
+
 
 
 

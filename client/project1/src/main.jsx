@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root, { loader as rootLoader } from './routes/Root';
 import ErrorPage from './pages/errors/ErrorPage';
 import Contact from './routes/Contact';
+import Search from './routes/search/Search.jsx';
 
 // CSS FILES
 import './index.css';
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: 'contacts/:contactId',
         element: <Contact />
+      },
+      {
+        path: 'search/',
+        element: <Search />
       }
     ]
   }
