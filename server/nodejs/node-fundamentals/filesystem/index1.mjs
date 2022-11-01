@@ -1,7 +1,7 @@
-import { readFile, writeFile, appendFile, rename, lstat } from 'fs'
+import { readFile, writeFile, appendFile, rename } from 'fs'
 import path, { join } from 'path'
 import { fileURLToPath } from 'url'
-
+import fspromises from 'fs/promises'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -29,13 +29,12 @@ console.log("Hello...")
 let filename = 'reply.txt'
 writeFile(
     //path to directory
+    path.join(__dirname, filename),
 
-    join(__dirname, filename),
-
-    // message passed to file
+    // message passed to file 
     'Nice to meet you',
 
-    // callback function
+    // callback function (Callback Hell!!!)
     (err) => {
         if (err) throw err
         console.log("Write completed!")
@@ -54,7 +53,7 @@ writeFile(
                 let renameFile = "rename.txt"
                 rename(
                     join(__dirname, filename),
-                    renameFile,
+                    join(__dirname, renameFile),
                     () => {
                         if (err) throw err
                         console.log("Rename is done!")
@@ -102,21 +101,33 @@ console.log("\n\n\n")
 const fileOps = async () => {
     try {
 
+        // read from file
         const data = await fspromises.readFile(
             path.join(__dirname, './lorem.txt'),
             'utf-8'
         )
         console.log(data)
+
+        // delete file
+        await fspromises.unlink(
+            path.join(__dirname, './lorem.txt'),
+        )
+        // write to file
         await fspromises.writeFile(
             path.join(__dirname, './promiseWrite.txt'),
             data)
+        
+        // append to file
         await fspromises.appendFile(
             join(__dirname, './promiseWrite.txt'),
             "\n\nAppend completed!")
+        
+        // rename file
         await fspromises.rename(
             join(__dirname, './promiseWrite.txt'),
             join(__dirname, 'promiseComplete.txt'))
         
+        // 
         const newData = await fspromises.readFile(
             path.join(__dirname, './promiseComplete.txt'),
             'utf-8'

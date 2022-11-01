@@ -8,6 +8,8 @@
  * - Functional
  * 
  */
+const Hello = require('../globalObject')
+console.log()
 
 
 // FUNCTIONAL INHERITANCE
@@ -37,7 +39,7 @@ console.log(agency())
 
 
 // CLASSICAL INHERITANCE
-class baseModel {
+class BaseModel {
     constructor(options = {}, data = []) {
         this.name = 'Base'
         this.data = data
@@ -48,3 +50,21 @@ class baseModel {
         console.log(`Class name: ${this.name}`)
     }
 }
+
+class AccountModel extends BaseModel {
+    constructor(options, data) {
+        super({ private: true }, ['2389298', '32--2921330'])
+
+        // call the parent method with super
+        this.name = 'Account Model'
+        this.url += '/accounts/'
+    }
+
+    get accountsData() {
+        return this.data
+    }
+}
+
+let accounts = new AccountModel(5)
+accounts.getName()
+console.log('Data is %s', accounts.accountsData)
