@@ -15,11 +15,6 @@ else {
     })
 }
 
-// create directory
-fs.mkdir('./new', (err) => {
-    if (err) throw err
-    console.log('Directory created!')
-})
 
 
 // REMOVE DIRECTORY
