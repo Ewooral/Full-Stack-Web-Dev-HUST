@@ -4,9 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "dev": "nodemon server.mjs",
+    "start": "node server.mjs"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+
+  "dependencies": {
+    "nodemon":"^2.0.20",
+    "uuid": "^9.0.0"
+  }
 }
