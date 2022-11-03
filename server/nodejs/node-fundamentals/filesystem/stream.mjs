@@ -1,8 +1,6 @@
 import fs from 'fs'
-import path from 'path'
 import url from 'url'
 
-const __filename = url.fileURLToPath(import.meta.url)
 
 
 const rs = fs.createReadStream("./filesystem/lorem.txt", { encoding: 'utf-8' })
