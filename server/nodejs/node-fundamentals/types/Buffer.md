@@ -1,11 +1,9 @@
-
-    
 # BUFFER
 
-Is a node JS super data type. it is a Node JS addition to five primitives(boolean, string, number, 
+Is a node JS super data type. it is a Node JS addition to five primitives(boolean, string, number,
 undefined and null) and all-encompassing objects
 
-Node uses buffers when reading from a file system and 
+Node uses buffers when reading from a file system and
 when receiving packets over the network.
 
 It is analogous to javascript `ArrayBuffer`.

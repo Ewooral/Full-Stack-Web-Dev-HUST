@@ -1,13 +1,12 @@
 // Read a file
 
-import fs, { readFile, watch, writeFile } from 'fs'
-import { rename } from 'fs/promises'
-import path, { join } from 'path'
-import url from 'url'
+import fs, { readFile, watch, writeFile } from 'fs';
+import { rename } from 'fs/promises';
+import path, { join } from 'path';
+import url from 'url';
 
-const filename = url.fileURLToPath(import.meta.url)
-const __dirname = path.dirname(filename)
-
+const filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(filename);
 
 // console.log("Kindly write your content here...\n")
 // process.stdin.on('data', (data, err) => {
@@ -46,8 +45,6 @@ const __dirname = path.dirname(filename)
 //                     }
 //                     process.exit()
 
-
-
 //                 }
 //             )
 //         }
@@ -57,54 +54,42 @@ const __dirname = path.dirname(filename)
 
 // )
 
-import fspromises from 'fs/promises'
+import fspromises from 'fs/promises';
 
 const ope = async () => {
+  try {
+    const data = await fspromises.readFile(join(__dirname, 'MANCITY.txt'), 'utf8');
+    console.log(data.toString().trim());
 
-    try {
-        const data = await fspromises.readFile(
-            join(__dirname, "MANCITY.txt"),
-            'utf8')
-        console.log(data.toString().trim())
-
-        await fspromises.writeFile(
-            join(__dirname, 'NEWMAN.html'),
-            `<html> 
+    await fspromises.writeFile(
+      join(__dirname, 'NEWMAN.html'),
+      `<html> 
                 <head>
                     <title>Try</title>
                 </head>
                 <body>
                     <h1>Hello, World!</h1>
                 </body>
-            </html>`,
-        )
-        console.log("Message Read into File!!!")
+            </html>`
+    );
+    console.log('Message Read into File!!!');
 
-        await fspromises.unlink(
-            join(__dirname, 'NEWMAN.html')
-        )
-    }
+    await fspromises.unlink(join(__dirname, 'NEWMAN.html'));
+  } catch (err) {
+    if (err) throw err;
+    process.exit();
+  }
+};
+ope();
 
-    catch (err) {
-        if (err) throw err
-        process.exit()
-    }
-}
-ope()
-
-fs.mkdir('SHATTA WALE', () => console.log('Created!!'))
-fs.rmdir('SHATTA WALE', () => console.log('Removed!!'))
+fs.mkdir('SHATTA WALE', () => console.log('Created!!'));
+fs.rmdir('SHATTA WALE', () => console.log('Removed!!'));
 
 process.on('uncaughtException', (err) => {
-    console.error('An error was encountered\n', err);
-    process.exit(1);
-})
+  console.error('An error was encountered\n', err);
+  process.exit(1);
+});
 
-
-
-process.on("exit", () => {
-    console.log("Thank you!\nFile Renamed!!")
-})
-
-
-
+process.on('exit', () => {
+  console.log('Thank you!\nFile Renamed!!');
+});

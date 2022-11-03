@@ -1,6 +1,6 @@
-let show = console.log
+let show = console.log;
 
 // show(process)
-show(process.pid)
-show(process.versions.node)
-show(process.argv)
+show(process.pid);
+show(process.versions.node);
+show(process.argv);

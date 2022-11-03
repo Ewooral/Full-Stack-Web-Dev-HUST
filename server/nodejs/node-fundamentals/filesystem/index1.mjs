@@ -1,73 +1,57 @@
-import { readFile, writeFile, appendFile, rename } from 'fs'
-import path, { join } from 'path'
-import { fileURLToPath } from 'url'
-import fspromises from 'fs/promises'
+import { readFile, writeFile, appendFile, rename } from 'fs';
+import path, { join } from 'path';
+import { fileURLToPath } from 'url';
+import fspromises from 'fs/promises';
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // READ FROM FILE...........................
 readFile(
-    //path to directory
-    path.join(__dirname, 'starter.txt'),
+  //path to directory
+  path.join(__dirname, 'starter.txt'),
 
-    // encoding type
-    'utf8',
+  // encoding type
+  'utf8',
 
-    //  callback function
-    (err, data) => {
-        if (err) throw err
-        console.log(data)
-    }
-)
+  //  callback function
+  (err, data) => {
+    if (err) throw err;
+    console.log(data);
+  }
+);
 
-console.log("Hello...")
+console.log('Hello...');
 
 // WRITE TO A FILE...........................
-let filename = 'reply.txt'
+let filename = 'reply.txt';
 writeFile(
-    //path to directory
-    path.join(__dirname, filename),
+  //path to directory
+  path.join(__dirname, filename),
 
-    // message passed to file 
-    'Nice to meet you',
+  // message passed to file
+  'Nice to meet you',
 
-    // callback function (Callback Hell!!!)
-    (err) => {
-        if (err) throw err
-        console.log("Write completed!")
+  // callback function (Callback Hell!!!)
+  (err) => {
+    if (err) throw err;
+    console.log('Write completed!');
 
-        // APPEND TO A FILE..........................
-        let message = "\n\nWho never fucked up hands in the Air!!"
-        appendFile(
+    // APPEND TO A FILE..........................
+    let message = '\n\nWho never fucked up hands in the Air!!';
+    appendFile(join(__dirname, filename), message, (err) => {
+      if (err) throw err;
+      console.log('Append completed please!');
 
-            join(__dirname, filename),
-            message,
-            (err) => {
-                if (err) throw err
-                console.log("Append completed please!")
-
-                // RENAME A FILE
-                let renameFile = "rename.txt"
-                rename(
-                    join(__dirname, filename),
-                    join(__dirname, renameFile),
-                    () => {
-                        if (err) throw err
-                        console.log("Rename is done!")
-                    }
-
-                )
-            }
-        )
-
-
-    },
-
-)
-
+      // RENAME A FILE
+      let renameFile = 'rename.txt';
+      rename(join(__dirname, filename), join(__dirname, renameFile), () => {
+        if (err) throw err;
+        console.log('Rename is done!');
+      });
+    });
+  }
+);
 
 // APPEND TO A FILE..........................
 // appendFile(
@@ -80,66 +64,47 @@ writeFile(
 // )
 
 // CATCH ERROR AND EXIT.......................
-process.on(
-    'uncaughtException',
-    err => {
-        console.log(`There was an uncaught error: ${err}`)
-        process.exit(1)
-    }
-)
+process.on('uncaughtException', (err) => {
+  console.log(`There was an uncaught error: ${err}`);
+  process.exit(1);
+});
 
-console.log("Hey, It's me again!!!...")
-
-
-
+console.log("Hey, It's me again!!!...");
 
 // STACKING CALLBACKS ON TOP OF EACH OTHER CAN DEFINITELY LEAD TO
 // CALLBACK HELL
 // LET USE ASYNC AWAIT TO REMEDY THAT
-console.log("\n\n\n")
+console.log('\n\n\n');
 
 const fileOps = async () => {
-    try {
+  try {
+    // read from file
+    const data = await fspromises.readFile(path.join(__dirname, './lorem.txt'), 'utf-8');
+    console.log(data);
 
-        // read from file
-        const data = await fspromises.readFile(
-            path.join(__dirname, './lorem.txt'),
-            'utf-8'
-        )
-        console.log(data)
+    // delete file
+    await fspromises.unlink(path.join(__dirname, './lorem.txt'));
+    // write to file
+    await fspromises.writeFile(path.join(__dirname, './promiseWrite.txt'), data);
 
-        // delete file
-        await fspromises.unlink(
-            path.join(__dirname, './lorem.txt'),
-        )
-        // write to file
-        await fspromises.writeFile(
-            path.join(__dirname, './promiseWrite.txt'),
-            data)
-        
-        // append to file
-        await fspromises.appendFile(
-            join(__dirname, './promiseWrite.txt'),
-            "\n\nAppend completed!")
-        
-        // rename file
-        await fspromises.rename(
-            join(__dirname, './promiseWrite.txt'),
-            join(__dirname, 'promiseComplete.txt'))
-        
-        // 
-        const newData = await fspromises.readFile(
-            path.join(__dirname, './promiseComplete.txt'),
-            'utf-8'
-        )
-        console.log(newData)
-    }
+    // append to file
+    await fspromises.appendFile(join(__dirname, './promiseWrite.txt'), '\n\nAppend completed!');
 
-    catch (error) {
-        console.error(error)
-    }
-}
+    // rename file
+    await fspromises.rename(
+      join(__dirname, './promiseWrite.txt'),
+      join(__dirname, 'promiseComplete.txt')
+    );
 
-fileOps()
+    //
+    const newData = await fspromises.readFile(
+      path.join(__dirname, './promiseComplete.txt'),
+      'utf-8'
+    );
+    console.log(newData);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-
+fileOps();
