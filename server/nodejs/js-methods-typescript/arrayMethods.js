@@ -79,3 +79,9 @@ The copyWithin() method does not add items to the array.
 * */
 arr5.copyWithin(3, 0)
 print(arr5)
+
+console.log(arr5.slice(-1).join(""))
+
+
+let cd = "what are you"
+console.log(cd.slice(-1))
