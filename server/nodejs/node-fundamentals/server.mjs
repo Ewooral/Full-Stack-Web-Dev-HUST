@@ -1,7 +1,6 @@
 import http from 'http';
 import path from 'path';
 import url from 'url';
-import { exec } from 'child_process';
 import fs from 'fs';
 import fspromises from 'fs/promises';
 import { logEvents } from './logEvents.mjs';
@@ -35,71 +34,74 @@ const PORT = process.env.PORT || 5000;
 
 // SERVER
 const server = http.createServer((req, res) => {
-  console.log(req.url, req.method);
+    console.log(req.url, req.method);
+    // res.end("Hello, World!\n")
+    res.write("Hello, World!")
+
 
   const extension = path.extname(req.url);
 
   let contentType;
 
-  switch (extension) {
-    case '.css':
-      contentType = 'text/css';
-      break;
-    case '.json':
-      contentType = 'application/json';
-      break;
-    case '.js':
-      contentType = 'text/javascript';
-      break;
-    case '.jpg':
-      contentType = 'image/jpeg';
-      break;
-    case '.png':
-      contentType = 'image/png';
-      break;
-    case '.txt':
-      contentType = 'text/plain';
-      break;
+//   switch (extension) {
+//     case '.css':
+//       contentType = 'text/css';
+//       break;
+//     case '.json':
+//       contentType = 'application/json';
+//       break;
+//     case '.js':
+//       contentType = 'text/javascript';
+//       break;
+//     case '.jpg':
+//       contentType = 'image/jpeg';
+//       break;
+//     case '.png':
+//       contentType = 'image/png';
+//       break;
+//     case '.txt':
+//       contentType = 'text/plain';
+//       break;
 
-    default:
-      contentType: 'text/html';
-      break;
-  }
+//     default:
+//       contentType: 'text/html';
+//       break;
+//   }
 
-  let filePath =
-    contentType === 'text/html' && req.url === '/'
-      ? path.join(__dirname, 'views', 'index.html')
-      : contentType === 'text/html' && req.url.slice(-1) === '/'
-      ? path.join(__dirname, 'views', req.url, 'index.html')
-      : contentType === 'text/html'
-      ? path.join(__dirname, 'views', req.url)
-      : path.join(__dirname, req.url);
+//   let filePath =
+//     contentType === 'text/html' && req.url === '/'
+//       ? path.join(__dirname, 'views', 'index.html')
+//       : contentType === 'text/html' && req.url.slice(-1) === '/'
+//       ? path.join(__dirname, 'views', req.url, 'index.html')
+//       : contentType === 'text/html'
+//       ? path.join(__dirname, 'views', req.url)
+//       : path.join(__dirname, req.url);
 
   // makes .html extension not required in the browser
-  if (!extension && req.url.slice(-1) !== '/') filePath += '.html';
+//   if (!extension && req.url.slice(-1) !== '/') filePath += '.html';
 
-  const fileExits = fs.existsSync(filePath);
-  if (fileExits) {
-    // Serve the file
-    serveFile(filePath, contentType, res);
-  } else {
-    // 404
-    // 301 redirect
-    switch (path.parse(filePath).base) {
-      case 'old-page.html':
-        res.writeHead(301, { Location: '/new-page.html' });
-        res.end();
-        break;
-      case 'www-page.html':
-        res.writeHead(301, { Location: '/' });
-        res.end();
-        break;
-      default:
-        // Serve a 404 response
-        serveFile(path.join(__dirname, 'views', '404.html'), 'text/html', res);
-    }
-    console.log(path.parse(filePath));
-  }
+//   const fileExits = fs.existsSync(filePath);
+//   if (fileExits) {
+//     // Serve the file
+//     serveFile(filePath, contentType, res);
+//   } else {
+//     // 404
+//     // 301 redirect
+//     switch (path.parse(filePath).base) {
+//       case 'old-page.html':
+//         res.writeHead(301, { Location: '/new-page.html' });
+//         res.end();
+//         break;
+//       case 'www-page.html':
+//         res.writeHead(301, { Location: '/' });
+//         res.end();
+//         break;
+//       default:
+//         // Serve a 404 response
+//         serveFile(path.join(__dirname, 'views', '404.html'), 'text/html', res);
+//     }
+//     console.log(path.parse(filePath));
+//   }
 });
 
 // LISTEN
@@ -111,8 +113,6 @@ server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 //Emit event
 // myEmitter.emit('log', 'Log event emitted')
 
-exec('cat filesystem/MANCITY.txt', (err, stdout, stderr) => {
-  console.log('we got our catted file\n', stdout);
-});
+
 
 
