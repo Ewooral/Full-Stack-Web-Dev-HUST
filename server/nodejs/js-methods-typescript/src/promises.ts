@@ -86,8 +86,8 @@ const promise3 = new Promise((resolve, reject) => {
     setTimeout(resolve, 2000, 'Goodbye')
 })
 
-// const promise4 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json').then(res =>res.json())
-Promise.all([promise1, promise2, promise3,]).then((values) =>
+const promise4 = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json').then(res =>res.json())
+Promise.all([promise1, promise2, promise3, promise4]).then((values) =>
 console.log(values))
 
 
@@ -112,31 +112,16 @@ console.log(values))
 * target = 2
 * return an array of the two numbers when added amount to target
 * */
-interface Result {
 
-}
-
-function twoSum(arr:number[], target:number){
-    let res: Result = {}
-    let num:string
-    for(num in arr){
-        let curItem:number = arr[num]
-        if ((curItem) in res) {
-            
-        }
-        
-    }
-
-}
-let arr = [1, -3, 5, 2, -1, 0]
-console.log(twoSum(arr, 2))
 
 
 outer: for (let i = 0; i < 3; i++) {
 
   for (let j = 0; j < 3; j++) {
 
-    let input = prompt(`Value at coords (${i},${j})`, '');
+      let input = process.stdin.on(`Value at coords (${i},${j})`, () => {
+        process.stdout.write(`${i},${j}`)
+    });
 
     // if an empty string or canceled, then break out of both loops
     if (!input) break outer; // (*)
