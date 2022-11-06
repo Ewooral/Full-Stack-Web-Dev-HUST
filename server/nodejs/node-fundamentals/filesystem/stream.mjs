@@ -10,4 +10,3 @@ const ws = fs.createWriteStream('./filesystem/new-lorem.txt');
 //     ws.write(dataChunk)
 // })
 
-rs.pipe(ws);
