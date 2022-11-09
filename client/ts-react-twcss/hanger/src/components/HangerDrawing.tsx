@@ -16,7 +16,7 @@ const BODY = (
   <div
     style={{
       width: '10px',
-      height: '100px',
+      height: '60px',
       background: 'black',
       position: 'absolute',
       top: '120px',
@@ -55,11 +55,19 @@ const LEFT_ARM = (
 const RIGHT_LEG = (
   <div
     style={{
+      // width: '100px',
+      // height: '10px',
+      // background: 'black',
+      // position: 'absolute',
+      // top: '210px',
+      // right: '-90px',
+      // rotate: '60deg',
+      // transformOrigin: 'left bottom'
       width: '100px',
       height: '10px',
       background: 'black',
       position: 'absolute',
-      top: '210px',
+      top: '166px',
       right: '-90px',
       rotate: '60deg',
       transformOrigin: 'left bottom'
@@ -69,12 +77,20 @@ const RIGHT_LEG = (
 const LEFT_LEG = (
   <div
     style={{
+      // width: '100px',
+      // height: '10px',
+      // background: 'black',
+      // position: 'absolute',
+      // top: '210px',
+      // right: 0,
+      // rotate: '-60deg',
+      // transformOrigin: 'right bottom'
       width: '100px',
       height: '10px',
       background: 'black',
       position: 'absolute',
-      top: '210px',
-      right: 0,
+      top: '166px',
+      right: '0px',
       rotate: '-60deg',
       transformOrigin: 'right bottom'
     }}
@@ -113,7 +129,7 @@ export const HangerDrawing = ({ numberOfGuesses }: HangerDrawingProps) => {
 
       <div
         style={{
-          height: '400px',
+          height: '240px',
           width: '10px',
           background: 'black',
           marginLeft: '120px'

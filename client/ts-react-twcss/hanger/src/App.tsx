@@ -74,9 +74,10 @@ const App = () => {
         alignItems: 'center'
       }}
     >
-      <h1>HANG MAN WORD GAME</h1>
+     
 
       <div style={{ fontSize: '2rem', textAlign: 'center' }}>
+        <h1>HANG MAN WORD GAME</h1>
         {isWinner && 'Winner! - Start New '}
         {isLoser && `Looser!!\b Press "Enter" to try again`}
       </div>
