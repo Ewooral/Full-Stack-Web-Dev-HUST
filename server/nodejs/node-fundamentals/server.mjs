@@ -5,7 +5,7 @@ import fs from 'fs';
 import fspromises, { mkdir } from 'fs/promises';
 import { logEvents } from './eventEmitters/logEvents.mjs';
 import EventEmitter from 'events';
-import { stderr } from 'process';
+
 class Emitter extends EventEmitter { }
 // initialize object
 const myEmitter = new Emitter();
@@ -130,10 +130,10 @@ const server = http.createServer((req, res) => {
 // LISTEN
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-//add listener for the log event
+//register listener for the log event
 // myEmitter.on('log', (msg) => logEvents(msg))
 
-//Emit event
+//Emit trigger the event
 // myEmitter.emit('log', 'Log event emitted')
 
 
