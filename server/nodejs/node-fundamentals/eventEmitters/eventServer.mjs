@@ -13,8 +13,6 @@ class myEmitter extends MyEmitter { }
 
 const newEmitter = new myEmitter();
 
-
-
 // newEmitter.on('event', function (a, b, c) {
 //     setImmediate(() => {
 //         console.log('this happens asynchronously');
@@ -29,8 +27,10 @@ let filename = 'events.txt'
 
 newEmitter.once('event', () => {
     if (!fs.existsSync(path.join(__dirname, 'Pushes'))) {
-        fs.mkdir(path.join(__dirname, 'Pushes'), (err) => {
-            if (err) throw err;
+        fs.mkdir(path.join(__dirnam, 'Pushes'), (err) => {
+            if (err) {
+                newEmitter.emit('error', new Error('whoops!'));
+            }
             console.log('Directory Created!')
         })
         fs.writeFile(path.join(__dirname, 'Pushes', filename), `\n${m++}\n`,
@@ -69,7 +69,8 @@ newEmitter.on('event', (a, b) => {
         });
         process.nextTick(() => {
             let p = a + " I smell sth.."
-            fs.appendFile(path.join(__dirname, 'Pushes', filename), `\n${p}\n`, (err) => {
+            fs.appendFile(path.join(__dirname, 'Pushes', filename), `\n${p}\n`,
+                (err) => {
                 if (err) throw err;
                 console.log('Append 3 completed!')
             })
