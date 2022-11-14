@@ -28,9 +28,7 @@ let filename = 'events.txt'
 newEmitter.once('event', () => {
     if (!fs.existsSync(path.join(__dirname, 'Pushes'))) {
         fs.mkdir(path.join(__dirnam, 'Pushes'), (err) => {
-            if (err) {
-                newEmitter.emit('error', new Error('whoops!'));
-            }
+            if (err) throw err;
             console.log('Directory Created!')
         })
         fs.writeFile(path.join(__dirname, 'Pushes', filename), `\n${m++}\n`,
@@ -100,7 +98,9 @@ newEmitter.on('event', (a, b) => {
     
 });
 
-
+process.on('uncaughtException', () =>{
+    newEmitter.emit('error', new Error('whoops!'));
+})
 
 
 
@@ -111,6 +111,7 @@ const server = http.createServer((req, res) => {
     newEmitter.emit('event', 'Good days are ahead!', 400);
     // newEmitter.emit('event')
     // res.writeHead("Hello, World!")
+
 })
 
 server.listen(PORT, () => console.log("Serving is connected on port ", PORT))

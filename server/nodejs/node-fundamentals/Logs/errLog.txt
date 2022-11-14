@@ -1,0 +1,5 @@
+11/12/2022	19:44:46	174f8f50-745a-492f-a1bd-bf8244175a25	Error: Not allowed by CORS
+11/13/2022	11:07:16	d5cc13c1-76a4-4bc7-a407-4adbde70f9dd	Error: ENOENT: no such file or directory, stat '/home/fspoon/Devops/FullStack-HUST/server/nodejs/node-fundamentals/routes/subdir/test.html'
+11/13/2022	11:07:44	0e7492e1-95b1-4941-ba7a-443d90e74a2c	Error: ENOENT: no such file or directory, stat '/home/fspoon/Devops/FullStack-HUST/server/nodejs/node-fundamentals/routes/subdir/index.html'
+11/13/2022	11:07:45	3f835d60-8d21-46ff-bf67-d1086f30283f	Error: ENOENT: no such file or directory, stat '/home/fspoon/Devops/FullStack-HUST/server/nodejs/node-fundamentals/routes/subdir/index.html'
+11/13/2022	14:25:08	dfd6e384-9221-4dfb-ab6f-5a487656b00d	Error: ENOENT: no such file or directory, stat '/home/fspoon/Devops/FullStack-HUST/server/nodejs/node-fundamentals/routes/subdir/index.html'
