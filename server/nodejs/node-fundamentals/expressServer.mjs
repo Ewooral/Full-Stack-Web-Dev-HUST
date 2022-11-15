@@ -4,6 +4,8 @@ import url from 'url';
 import { logger } from './middleware/logEvents.mjs';
 import { errorHandler } from './middleware/errorHandler.mjs';
 import cors from 'cors'
+import indexRouter from './routes/subdir.mjs';
+import testRouter from './routes/subdir.mjs';
 
 const app = express()
 let filename = url.fileURLToPath(import.meta.url);
@@ -41,10 +43,12 @@ app.use(express.json())
 //serve static files
 app.use('/', express.static(path.join(__dirname, '/assets')))
 
-import route from './routes/subdir.mjs'
+app.use('/subdir', express.static(path.join(__dirname, '/assets')))
+
+
 
 // Serving From a Subfolder  
-app.use('/subdir', route)
+app.use('/subdir', indexRouter)
 
 
 // begin and end with / or index.html (regExp) // extension is optional
