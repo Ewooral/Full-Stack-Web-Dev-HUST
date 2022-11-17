@@ -5,7 +5,7 @@ const express = require('express')
 const path = require('path')
 const url = require('url')
 const { logger } = require('./middleware/logEvents.js')
-const errorHandler = require('./middleware/errorHandler.js')
+const { errorHandler } = require('./middleware/errorHandler.js')
 const cors = require('cors')
 
 const app = express()
@@ -48,7 +48,8 @@ app.use('/subdir', express.static(path.join(__dirname, '/assets')))
 
 
 // Serving From a Subfolder  
-// app.use('/subdir', indexRouter)
+app.use('/subdir', indexRouter)
+// app.use('/subdir', require('./routes/subdir'))
 
 
 // begin and end with / or index.html (regExp) // extension is optional
@@ -119,7 +120,7 @@ app.all('/*', (req, res) => {
 })
 
 // 
-// app.use(errorHandler)
+app.use(errorHandler)
 
 
 
