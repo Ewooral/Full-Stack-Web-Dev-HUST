@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Elijah Owusu",
+    "age": 29,
+    "occupation": "Software Engineer"
+  },
+  {
+    "id": 2,
+    "name": "Moses Boahen",
+    "age": 24,
+    "occupation": "Meteorological Engineer"
+  }
+]

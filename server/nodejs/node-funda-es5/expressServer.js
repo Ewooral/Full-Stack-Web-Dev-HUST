@@ -1,12 +1,17 @@
-
-const indexRouter = require('./routes/subdir.js');
-
 const express = require('express')
 const path = require('path')
-const url = require('url')
+
 const { logger } = require('./middleware/logEvents.js')
 const { errorHandler } = require('./middleware/errorHandler.js')
+
 const cors = require('cors')
+const corsOptions = require('./config/corsOptions')
+
+//Routers
+const indexRouter1 = require('./routes/subdir.js');
+const rootRouter = require('./routes/root.js');
+const employeeRouter = require('./routes/api/employees.js');
+
 
 const app = express()
 
@@ -16,25 +21,10 @@ const app = express()
 app.use(logger)
 
 // cross origin resource sharing 
-const whitelist = ['https://www.yourfrontenddomain.com', 'http://127.0.0.1:5500', 'http://localhost:5000']
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      // if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-  optionsSuccessStatus: 200
-}
 app.use(cors(corsOptions))
 
 
-// BUILT-IN MIDDLEWARES TO HANDLE URLENCODED DATA
-// in other words, form data:
-// 'content-type: application/x-www-urlencoded'
-
+// BUILT-IN MIDDLEWARES TO HANDLE URLENCODED DATA (form data)
 app.use(express.urlencoded({ extended: false }))
 
 // built-in middleware for json
@@ -42,58 +32,57 @@ app.use(express.json())
 
 //serve static files
 app.use('/', express.static(path.join(__dirname, '/assets')))
-
 app.use('/subdir', express.static(path.join(__dirname, '/assets')))
 
-
-
-// Serving From a Subfolder  
-app.use('/subdir', indexRouter)
+// Routes 
+app.use('/', rootRouter)
+app.use('/subdir', indexRouter1)
+app.use('/employees', employeeRouter)
 // app.use('/subdir', require('./routes/subdir'))
 
 
-// begin and end with / or index.html (regExp) // extension is optional
-app.get('^/$|/index(.html)?', (req, res) => {
-  // res.sendFile('./views/index.html', { root: __dirname })
-  res.sendFile(path.join(__dirname, 'views', 'index.html'))
-})
+// // begin and end with / or index.html (regExp) // extension is optional
+// app.get('^/$|/index(.html)?', (req, res) => {
+//   // res.sendFile('./views/index.html', { root: __dirname })
+//   res.sendFile(path.join(__dirname, 'views', 'index.html'))
+// })
 
-app.get('/new-page(.html)?', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'new-page.html'))
-})
+// app.get('/new-page(.html)?', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'views', 'new-page.html'))
+// })
 
-// redirect
-app.get('/old-page(.html)?', (req, res) => {
-  res.redirect(301, '/new-page.html')// 302 by default
-})
+// // redirect
+// app.get('/old-page(.html)?', (req, res) => {
+//   res.redirect(301, '/new-page.html')// 302 by default
+// })
 
 // // CHAIN ROUTE HANDLERS - METHOD ONE
-app.get('/hello(.html)?', (req, res, next) => {
-  console.log('attempted to load hello.html')
-  next()
-}, (req, res) => {
-  res.send('Hello World!!')
-})
+// app.get('/hello(.html)?', (req, res, next) => {
+//   console.log('attempted to load hello.html')
+//   next()
+// }, (req, res) => {
+//   res.send('Hello World!!')
+// })
 
 
 
-// CHAIN ROUTE HANDLERS - METHOD TWO USING ARRAY
-const one = (req, res, next) => {
-  console.log('one')
-  next()
-}
+// // CHAIN ROUTE HANDLERS - METHOD TWO USING ARRAY
+// const one = (req, res, next) => {
+//   console.log('one')
+//   next()
+// }
 
-const two = (req, res, next) => {
-  console.log('two')
-  next()
-}
+// const two = (req, res, next) => {
+//   console.log('two')
+//   next()
+// }
 
-const three = (req, res) => {
-  console.log('three')
-  res.send('Finished!')
-}
+// const three = (req, res) => {
+//   console.log('three')
+//   res.send('Finished!')
+// }
 
-app.get('/chain(.html)?', [one, two, three])
+// app.get('/chain(.html)?', [one, two, three])
 
 
 
