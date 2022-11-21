@@ -1,19 +1,22 @@
 const express = require('express')
+const app = express()
 const path = require('path')
 
+// Middlewares
 const { logger } = require('./middleware/logEvents.js')
 const { errorHandler } = require('./middleware/errorHandler.js')
 
+// Config 
 const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
 
-//Routers
+// Routers
 const indexRouter1 = require('./routes/subdir.js');
 const rootRouter = require('./routes/root.js');
 const employeeRouter = require('./routes/api/employees.js');
 
 
-const app = express()
+
 
 
 
@@ -38,23 +41,7 @@ app.use('/subdir', express.static(path.join(__dirname, '/assets')))
 app.use('/', rootRouter)
 app.use('/subdir', indexRouter1)
 app.use('/employees', employeeRouter)
-// app.use('/subdir', require('./routes/subdir'))
 
-
-// // begin and end with / or index.html (regExp) // extension is optional
-// app.get('^/$|/index(.html)?', (req, res) => {
-//   // res.sendFile('./views/index.html', { root: __dirname })
-//   res.sendFile(path.join(__dirname, 'views', 'index.html'))
-// })
-
-// app.get('/new-page(.html)?', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'views', 'new-page.html'))
-// })
-
-// // redirect
-// app.get('/old-page(.html)?', (req, res) => {
-//   res.redirect(301, '/new-page.html')// 302 by default
-// })
 
 // // CHAIN ROUTE HANDLERS - METHOD ONE
 // app.get('/hello(.html)?', (req, res, next) => {
@@ -99,10 +86,11 @@ app.all('/*', (req, res) => {
   res.status(404)
   if (req.accepts('html')) {
     res.sendFile(path.join(__dirname, 'views', '404.html'))
-  } else if (req.accepts('json')) {
-    res.json({ error: "404 Not Found" })
+  } else if (req.accepts('application/json')) {
+    res.json({ error: "404" })
   } else {
-    res.type('txt').send("404 Not Found")
+    res.type('txt').send("404 ")
+    console.log("cos 90 work!!")
   }
 
 
