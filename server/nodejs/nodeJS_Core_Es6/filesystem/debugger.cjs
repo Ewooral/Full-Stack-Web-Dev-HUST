@@ -8,5 +8,6 @@ let b = a.split('/')
 
 print(b)
 print(__filename)
-print("find: ", b.find(()=> "Found", "", 8,  b))
+print("find: ", b.find(() => "Found", "", 8, b))
+
 
