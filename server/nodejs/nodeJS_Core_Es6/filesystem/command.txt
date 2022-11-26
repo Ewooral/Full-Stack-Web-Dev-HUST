@@ -1,7 +1,2 @@
-
- Reading file......
- who is going to help you out here?
- I don't know
- Let ask the almighty God. 
-
- 
+create a file COURAGE.txt
+delete the file COURAGE.txt

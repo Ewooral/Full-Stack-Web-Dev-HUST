@@ -6,3 +6,5 @@ Germany 1
 Japan 2
 
 Yess
+
+create a file elia.txt
