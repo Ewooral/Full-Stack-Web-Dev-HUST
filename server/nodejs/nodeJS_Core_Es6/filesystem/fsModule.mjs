@@ -39,3 +39,11 @@ const copyFilee = async () => {
 
 copyFilee()
 
+
+// REGEX
+const materials = "beat"
+if(materials.match(/ea/)){
+    console.log("Regex: ", materials.match(/\be/))
+}
+
+

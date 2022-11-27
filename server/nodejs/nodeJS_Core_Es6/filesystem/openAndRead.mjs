@@ -18,7 +18,7 @@ import fs from 'fs/promises'
                 const existingFileHandle = await fs.open(path, "r")
                 existingFileHandle.close()
 
-                return console.log(`The file ${path} already exists`)
+                return console.log(`The file already exists`)
             }
             else {
                 const newFileHandle = await fs.open(path, "w")
@@ -74,12 +74,25 @@ import fs from 'fs/promises'
                     position: 0
                 })
             const command = buff.toString('utf-8')
+            let matcher = command.match(/\n/)
+            // console.log(matcher.input.split("\n"))
+
+            let eachLine = command.split("\n")
+            console.log(eachLine[1])
+
+            for( let line of eachLine){
+                console.log("LINE: ", line)
+            }
+
+
+
 
 
             // create a file:
             // create afile <path>
             if (command.includes(CREATE_FILE)) {
                 const filePath = command.substring(CREATE_FILE.length + 1)
+                console.log("filePath: ", filePath)
                 createAFile(filePath)
             }
 
@@ -94,7 +107,6 @@ import fs from 'fs/promises'
             console.log(error)
         }
     })
-
 
     "..................................................................................."
     const file = await fs.open('./rename.txt', 'r');
@@ -111,8 +123,7 @@ import fs from 'fs/promises'
         await file.read({
             buff, size, posi, offset, length
         })
-        const content = buff
-        console.log(content)
+        console.log(buff)
         console.log("First......!!!!!")
     })
 
@@ -127,6 +138,8 @@ import fs from 'fs/promises'
 
         }
     }
+
+
 
 
 })()
