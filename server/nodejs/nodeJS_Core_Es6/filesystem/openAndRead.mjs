@@ -78,7 +78,6 @@ import fs from 'fs/promises'
             // console.log(matcher.input.split("\n"))
 
             let eachLine = command.split("\n")
-            console.log(eachLine[1])
 
             for( let line of eachLine){
                 console.log("LINE: ", line)
