@@ -71,7 +71,8 @@ import fs from 'fs/promises'
                 {
                     offset: 0,
                     length: buff.byteLength,
-                    position: 0
+                    position: 0,
+                    aberation: 400
                 })
             const command = buff.toString('utf-8')
             let matcher = command.match(/\n/)
