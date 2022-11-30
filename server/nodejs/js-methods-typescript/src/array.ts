@@ -137,7 +137,13 @@ print(ages.every((age:number) => {
 }))
 
 
+function whatIsYourName<Type>(name: Type): Type {
+ console.log("My name is ", name)
 
+}
+
+
+console.log(whatIsYourName<string>("Elijah"))
 
 
 
