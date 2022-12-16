@@ -2,10 +2,10 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "expressServer.mjs",
+  "main": "express.mjs",
   "scripts": {
-    "dev": "nodemon expressServer.mjs",
-    "start": "node expressServer.mjs",
+    "dev": "nodemon express.mjs",
+    "start": "node express.mjs",
     "format": "prettier --write './**/*.{js,mjs,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "author": "",
