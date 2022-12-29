@@ -5,18 +5,18 @@ your tailwind.config.js file.
     npm install -D tailwindcss
     npx tailwindcss init
 
-  * Installing Tailwind CSS as a PostCSS plugin is the most seamless
-   way to integrate it with build tools like `webpack, Rollup, Vite, and Parcel`.
+* Installing Tailwind CSS as a PostCSS plugin is the most seamless
+way to integrate it with build tools like `webpack, Rollup, Vite, and Parcel`.
 
-    npm install -D tailwindcss postcss autoprefixer
-    npx tailwindcss init -p
+      npm install -D tailwindcss postcss autoprefixer
+     npx tailwindcss init -p
 
 # Configure your template paths
 Add the paths to all of your template files in your
 `tailwind.config.js` file.
 
     module.exports = {
-       content: ["./src/**/*.{html,js}"],
+       content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
        theme: {
          extend: {},
        },
