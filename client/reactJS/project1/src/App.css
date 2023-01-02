@@ -1,0 +1,16 @@
+.title {
+  text-align: center;
+}
+th {
+  text-align: center;
+  font-size: x-large;
+}
+input[placeholder='Lookup...'] {
+  width: 100%;
+  font-size: x-large;
+  padding: 0.2rem;
+}
+.large {
+  font-size: x-large;
+  font-weight: bolder;
+}
