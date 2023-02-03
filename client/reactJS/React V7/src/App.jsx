@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Details from "./Details";
 import ThemeContext from "./ThemeContext";
 import Clock from "./Clock";
+import Peperipe from "./tutorials/Peperipe";
 // const App = () => {
 //   return React.createElement(
 //     "div",
@@ -45,6 +46,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<SearchParams />} />
             <Route path="/details/:id" element={<Details />} />
+            <Route path="/tutorial" element={<Peperipe />} />
           </Routes>
         </BrowserRouter>
       </ThemeContext.Provider>
@@ -60,4 +62,4 @@ const App = () => {
   );
 };
 
-render(<App />, document.getElementById("root"));
+export default App;
