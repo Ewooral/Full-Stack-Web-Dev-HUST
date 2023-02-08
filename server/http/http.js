@@ -6,4 +6,4 @@ logItems(items)
 
 async function getItemData() {
     const response = await fetch("https://api.boot.dev")
-// }
+}
