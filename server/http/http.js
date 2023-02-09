@@ -1,7 +1,7 @@
 const apiKey = generateKey();
 const items = await getItemData();
 
-// logItems(items)
+logItems(items)
 
 
 async function getItemData() {
