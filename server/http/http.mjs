@@ -1,7 +1,9 @@
 const apiKey = generateKey();
+
 const items = await getItemData();
 
 logItems(items)
+
 
 
 async function getItemData() {
@@ -16,8 +18,19 @@ async function getItemData() {
     return response.json()
 }
 
+getItemData()
+
+function generateKey() {
+    const characters = 'ABCDEF0123456789'
+    let result = ''
+    for (let i = 0; i < 16; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+
+}
+
 function logItems(items) {
     for (const item of items) {
         console.log(item.name);
     }
-}
+} 
