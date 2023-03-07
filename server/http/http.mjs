@@ -22,13 +22,15 @@ function getSettings() {
 }
 
 function generateKey() {
-    const characters = 'ABCDEF0123456789'
+    const characters = 'ABCDEFghijklmnop0123456789%&*!./,-(}'
     let result = ''
     for (let i = 0; i < characters.length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length))
+        const getRandom = Math.floor(Math.random() * (characters.length) - 10)
+        result += characters.charAt(getRandom)
     }
 
 }
+
 
 function logItems(items) {
     for (const item of items) {
