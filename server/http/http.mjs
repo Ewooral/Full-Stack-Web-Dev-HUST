@@ -6,7 +6,7 @@ const response = await fetch(url, settings)
 const responseData = await response.json()
 
 logItems(responseData)
-
+console.log(generateKey())
 
 
 function getSettings() {
@@ -24,10 +24,11 @@ function getSettings() {
 function generateKey() {
     const characters = 'ABCDEFghijklmnop0123456789%&*!./,-(}'
     let result = ''
-    for (let i = 0; i < characters.length; i++) {
-        const getRandom = Math.floor(Math.random() * (characters.length) - 10)
+    for (let i = 0; i < (characters.length - 10); i++) {
+        const getRandom = Math.floor(Math.random() * characters.length)
         result += characters.charAt(getRandom)
     }
+    return result
 
 }
 
