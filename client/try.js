@@ -1,22 +1,16 @@
-let a = [2, 3, 5]
-let b = a.slice()
-let c = [...b]
-console.log(b);
-
-b.push(8)
-console.log(a)
-console.log(b)
-console.log(c)
-
 const duplicate = (arr) => {
-    // let arrCopy = arr.slice()
-    let arrCopy = [...arr]
-    for (let value of arrCopy) {
+    let lastValue = arr[arr.length - 1]
+    let IdxlastValue = arr.lastIndexOf(lastValue)
+    let i = 0;
+    while (i <= IdxlastValue) {
+        let value = arr[i]
         arr.push(value)
-
+        i += 1
     }
+
     return arr
 
 }
 
-// duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
+console.log(duplicate([1, 2, 3, 4, 5])); // [1,2,3,4,5,1,2,3,4,5]
+
