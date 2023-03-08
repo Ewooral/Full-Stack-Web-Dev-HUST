@@ -14,3 +14,7 @@ const duplicate = (arr) => {
 
 console.log(duplicate([1, 2, 3, 4, 5])); // [1,2,3,4,5,1,2,3,4,5]
 
+let a = [3, 2, 1]
+let b = [7, 6, 5]
+let c = a.concat(b)
+console.log(c)
