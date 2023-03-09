@@ -45,9 +45,8 @@ function getURL() {
 
 
 
-
+// GET IP ADDRESS
 console.log("..................................................")
-// GET IP ADDRESS................................................
 async function fetchIPAddress(domain) {
     const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, {
         headers: {
@@ -59,7 +58,8 @@ async function fetchIPAddress(domain) {
     return respObject.Answer[0].data
 }
 
-// don't touch below this line
+
+
 
 const domain = 'api.boot.dev'
 const ipAddress = await fetchIPAddress(domain)
