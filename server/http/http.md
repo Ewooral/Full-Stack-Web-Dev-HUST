@@ -24,3 +24,4 @@ addresses are difficult to memorise or are not human
 readable. That's where DNS (Domain Name System) comes in.
 
 * `DNS (Domain Name System)` maps human readable texts to an IP address thus, resolves domain names into IP addresses.
+
