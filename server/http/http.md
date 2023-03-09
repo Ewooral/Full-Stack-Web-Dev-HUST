@@ -10,3 +10,8 @@ It takes two inputs, **URL**, **settings object**
 an **await** keyword is also used in front of the fetch call because it's asynchronous
 
        const response = await fetch(url, {})
+
+* After fetching data from the server, we need to parse it
+into actual JS json object
+
+       const responseObj = await response.json()
