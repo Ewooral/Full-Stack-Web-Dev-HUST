@@ -43,9 +43,28 @@ function getURL() {
     return "https://api.boot.dev/v1/courses_rest_api/learn-http/items"
 }
 
-/**
- * The Fetch function is made available to us by the JS language running in
- * the browser, all we have to do is provide it with the parameters it requires
- * 
- * It takes two inputs, URL and a settings OBJECT
- */ 
+
+
+
+console.log("..................................................")
+// GET IP ADDRESS................................................
+async function fetchIPAddress(domain) {
+    const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, {
+        headers: {
+            'accept': 'application/dns-json'
+        }
+    })
+    const respObject = await resp.json()
+
+    return respObject.Answer[0].data
+}
+
+// don't touch below this line
+
+const domain = 'api.boot.dev'
+const ipAddress = await fetchIPAddress(domain)
+if (!ipAddress) {
+    console.log('something went wrong in fetchIPAddress')
+} else {
+    console.log(`found IP address for domain ${domain}: ${ipAddress}`)
+}
