@@ -72,6 +72,6 @@ if (!ipAddress) {
 
 fetch("https://api.boot.dev/v1/courses_rest_api/learn-http/items")
     .then((response) => response.json())
-// .then((data) => data.forEach(d => {
-console.log(d.name)
+    .then((data) => data.forEach(d => {
+        console.log(d.name)
     }));
