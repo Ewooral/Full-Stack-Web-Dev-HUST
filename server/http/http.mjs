@@ -77,6 +77,6 @@ fetch("https://api.boot.dev/v1/courses_rest_api/learn-http/items", {
     }
 })
     .then((response) => response.json())
-    .then((data) => data.forEach(element => {
-        console.log(`${element.quality}: ${element.name} ----  ${element.id}`)
+// .then((data) => data.forEach(element => {
+console.log(`${element.quality}: ${element.name} ----  ${element.id}`)
     }))
