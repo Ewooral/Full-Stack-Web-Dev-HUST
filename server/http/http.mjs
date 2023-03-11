@@ -70,6 +70,13 @@ if (!ipAddress) {
 }
 
 
-fetch("https://api.boot.dev/v1/courses_rest_api/learn-http/items")
+console.log("..................................................................")
+fetch("https://api.boot.dev/v1/courses_rest_api/learn-http/items", {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
     .then((response) => response.json())
-    .then((data) => console.log("Data: ", data));
+    .then((data) => data.forEach(element => {
+        console.log(`${element.quality}: ${element.name} ----  ${element.id}`)
+    }))
