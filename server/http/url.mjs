@@ -1,8 +1,13 @@
 const printURLParts = (urlString) => {
     const urlObj = new URL(urlString)
-    console.log(urlObj.protocol)
-    console.log(urlObj.username)
-    console.log(urlObj.password)
+    console.log("Protocol: ", urlObj.protocol)
+    console.log("username: ", urlObj.username)
+    console.log("Password: ", urlObj.password)
+    console.log("hostname: ", urlObj.hostname)
+    console.log("port: ", urlObj.port)
+    console.log("partName: ", urlObj.pathname)
+    console.log("Search: ", urlObj.search)
+    console.log("hash: ", urlObj.hash)
 }
 
 
