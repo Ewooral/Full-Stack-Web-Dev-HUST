@@ -14,3 +14,11 @@ const printURLParts = (urlString) => {
 const fantasyQuestURL = 'http://dragonslayer:pwn3d@fantasyquest.com:8080/maps?sort=rank#id'
 
 printURLParts(fantasyQuestURL)
+
+
+function getMailtoLinkForEmail(email) {
+    return `mailto: ${email}`
+}
+
+let email = 'boahen.cos@gmail.com'
+console.log(`mailto link for ${email} is ${getMailtoLinkForEmail(email)}`)
