@@ -12,7 +12,10 @@ const printURLParts = (urlString) => {
 
 
 const fantasyQuestURL = 'http://dragonslayer:pwn3d@fantasyquest.com:8080/maps?sort=rank#id'
+const nURL = 'https://www.youtube.com/watch?v=2JYT5f2isg4&t=569s'
 
+printURLParts(nURL)
+console.log("........................")
 printURLParts(fantasyQuestURL)
 
 
