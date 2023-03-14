@@ -1,6 +1,8 @@
 const printURLParts = (urlString) => {
     const urlObj = new URL(urlString)
     console.log(urlObj.protocol)
+    console.log(urlObj.username)
+    console.log(urlObj.password)
 }
 
 

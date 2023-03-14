@@ -33,6 +33,8 @@ let promise = new Promise(function(resolve, reject) {
   // executor (the producing code, "singer")
 });
 
+let p = new Promise((resolve, reject) => {})
+
 // @ts-ignore
 import products from "../products.json"
 const Products:any = products
