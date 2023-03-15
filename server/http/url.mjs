@@ -13,6 +13,7 @@ const printURLParts = (urlString) => {
 
 const fantasyQuestURL = 'http://dragonslayer:pwn3d@fantasyquest.com:8080/maps?sort=rank#id'
 const nURL = 'https://www.youtube.com/watch?v=2JYT5f2isg4&t=569s'
+const qURL = 'https://www.google.com/search?channel=fs&client=ubuntu&q=hello+world'
 
 printURLParts(nURL)
 console.log("........................")
@@ -25,3 +26,4 @@ function getMailtoLinkForEmail(email) {
 
 let email = 'boahen.cos@gmail.com'
 console.log(`mailto link for ${email} is ${getMailtoLinkForEmail(email)}`)
+
