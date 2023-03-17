@@ -33,7 +33,7 @@ let promise = new Promise(function(resolve, reject) {
   // executor (the producing code, "singer")
 });
 
-let p = new Promise((resolve, reject) => {})
+
 
 // @ts-ignore
 import products from "../products.json"
@@ -120,8 +120,9 @@ console.log(values))
 outer: for (let i = 0; i < 3; i++) {
 
   for (let j = 0; j < 3; j++) {
-
+// @ts-ignore
       let input = process.stdin.on(`Value at coords (${i},${j})`, () => {
+     // @ts-ignore
         process.stdout.write(`${i},${j}`)
     });
 
