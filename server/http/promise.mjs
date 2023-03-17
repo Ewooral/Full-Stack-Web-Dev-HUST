@@ -2,7 +2,7 @@ console.log("waiting...")
 const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
         let x = 3
-        if (x + 4 <= 6) {
+        if (x + 4 >= 6) {
             resolve("resolve")
 
         }
@@ -17,7 +17,8 @@ promise.then(message => { console.log(message) })
 
     .catch(err => { console.log(err) })
 
-console.log("Finished!")
+const message = await promise
+console.log("Finished!", message)
 
 
 // WHEN ARE PROMISES USED
