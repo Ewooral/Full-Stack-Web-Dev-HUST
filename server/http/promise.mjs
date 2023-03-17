@@ -1,13 +1,28 @@
+console.log("waiting...")
 const promise = new Promise((resolve, reject) => {
-    let x = 3
-    if (x + 4 <= 6) {
-        resolve("resolve")
+    setTimeout(() => {
+        let x = 3
+        if (x + 4 <= 6) {
+            resolve("resolve")
 
-    }
-    else {
-        reject("reject")
-    }
+        }
+        else {
+            reject("reject")
+        }
+    }, 3000);
 })
-    .then(message => { console.log("completed...", message) })
 
-    .catch(err => { console.log("Encountered Error!", err) })
+
+promise.then(message => { console.log(message) })
+
+    .catch(err => { console.log(err) })
+
+console.log("Finished!")
+
+
+// WHEN ARE PROMISES USED
+/**
+ * when performing http requests
+ * when reading files from the hard drive
+ * interacting with a bluetooth device
+ */
