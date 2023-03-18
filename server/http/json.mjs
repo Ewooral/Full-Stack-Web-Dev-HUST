@@ -1,5 +1,6 @@
-const data = await fetch("")
+import data from "./data.json"
 
-const dataObj = await data.json();
+const resp = data
 
-console.log(dataObj)
+
+console.log(resp.movies)
