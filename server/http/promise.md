@@ -78,6 +78,7 @@ const createProductInfo = (product: any) => {
 
 # CONSUMING CODE (HIGHER ORDER FUNCTION)
 
+```js
 createProductInfo(
     {name: 'Beans and Gari with Fish',
              price: 10.88,
@@ -113,9 +114,9 @@ console.log(values))
  });
 
  console.log("Started request…");
+```
 
-
- Chaining promises
+ ### Chaining promises
 
 
 * arr = [1, 3, 5, 2, -1, 0]
@@ -124,7 +125,7 @@ console.log(values))
 * 
 
 
-
+```js
 outer: for (let i = 0; i < 3; i++) {
 
   for (let j = 0; j < 3; j++) {
@@ -141,3 +142,4 @@ outer: for (let i = 0; i < 3; i++) {
   }
 }
 console.log('Done!');
+```
