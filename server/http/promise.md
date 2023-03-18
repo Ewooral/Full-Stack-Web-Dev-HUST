@@ -39,7 +39,7 @@ let promise = new Promise(function(resolve, reject) {
 
 ```js
  @ts-ignore
-import products from "../products.json"
+import products from "../products.json" assert {type: 'json'};
 const Products:any = products
 
 ```
