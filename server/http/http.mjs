@@ -7,6 +7,7 @@ const responseData = await response.json()
 
 logItems(responseData)
 console.log(generateKey())
+console.log(response[1].aborted)
 
 
 function getSettings() {
@@ -80,3 +81,4 @@ fetch("https://api.boot.dev/v1/courses_rest_api/learn-http/items", {
     .then((data) => data.forEach(element => {
         console.log(`${element.quality}: ${element.name} ----  ${element.id}`)
     }))
+

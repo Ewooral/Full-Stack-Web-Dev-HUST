@@ -1,0 +1,16 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "genre": "Action",
+            "title": "Iron Man",
+            "director": "Jon Favreau"
+        },
+        {
+            "id": 2,
+            "genre": "Action",
+            "title": "The Avengers",
+            "director": "Joss Whedon"
+        }
+    ]
+}

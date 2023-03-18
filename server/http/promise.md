@@ -29,21 +29,23 @@ This is a real-life analogy for things we often have in programming:
 
 
 
- The constructor syntax for a promise object is:
+## The constructor syntax for a promise object is:
+
+```js
 let promise = new Promise(function(resolve, reject) {
    executor (the producing code, "singer")
 });
+```
 
-
-
+```js
  @ts-ignore
 import products from "../products.json"
 const Products:any = products
 
-
+```
 
 # PRODUCING CODE (CALLBACK FUNCTION)
-
+```js
 const getProductInfo = () => {
     console.log("Fetching...!")
     setTimeout(() => {
@@ -53,9 +55,10 @@ const getProductInfo = () => {
     }, 3000)
     console.log("Finished!")
 }
-
+```
 # PROMISE OBJECT THAT LINKS CALLBACK AND HIGHER ORDER FUNCTION
 
+```js
 const createProductInfo = (product: any) => {
      return new Promise<void>((resolve, reject) => {
           setTimeout(() => {
@@ -71,6 +74,7 @@ const createProductInfo = (product: any) => {
     }, 1000)
      })
 }
+```
 
 # CONSUMING CODE (HIGHER ORDER FUNCTION)
 
