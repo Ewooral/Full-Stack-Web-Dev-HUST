@@ -8,7 +8,7 @@ import ErrorPage from './pages/errors/ErrorPage';
 import Contact from './routes/Contact';
 import Search from './routes/Search.jsx';
 import TodoApp from './routes/Todo';
-import Header from './components/Menu';
+import Header from './components/Header';
 
 // CSS FILES
 import './index.css';
@@ -19,13 +19,12 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Header />,
-
+    errorElement: <ErrorPage />,
+    loader: rootLoader,
     children: [
       {
         path: 'root/',
-        element: <Root />,
-        loader: rootLoader,
-        errorElement: <ErrorPage />
+        element: <Root />
       },
 
       {
