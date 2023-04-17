@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root, { loader as rootLoader } from './routes/Root';
 import ErrorPage from './pages/errors/ErrorPage';
 import Contact from './routes/Contact';
-import Search from './routes/search/Search.jsx';
+import Search from './routes/Search.jsx';
 import TodoApp from './routes/Todo';
 
 // CSS FILES
