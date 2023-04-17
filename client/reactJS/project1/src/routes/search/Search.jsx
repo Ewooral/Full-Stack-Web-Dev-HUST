@@ -62,7 +62,8 @@ const Search = () => {
         margin: 'auto',
         width: 800,
         paddingTop: '1rem'
-      }}>
+      }}
+    >
       <h1 className="title">Pokemon Search</h1>
 
       <div
@@ -70,7 +71,8 @@ const Search = () => {
           display: 'grid',
           gridTemplateColumns: '70% 30%',
           gridColumnGap: '1rem'
-        }}>
+        }}
+      >
         <div>
           <input
             type="search"

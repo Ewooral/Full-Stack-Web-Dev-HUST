@@ -7,6 +7,7 @@ import Root, { loader as rootLoader } from './routes/Root';
 import ErrorPage from './pages/errors/ErrorPage';
 import Contact from './routes/Contact';
 import Search from './routes/search/Search.jsx';
+import TodoApp from './components/Todo';
 
 // CSS FILES
 import './index.css';
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: 'search/',
         element: <Search />
+      },
+      {
+        path: 'todo/',
+        element: <TodoApp />
       }
     ]
   }
