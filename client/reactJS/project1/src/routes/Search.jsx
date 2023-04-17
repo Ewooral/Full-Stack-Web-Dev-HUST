@@ -1,4 +1,4 @@
-import '../../App.css';
+import '../App.css';
 import pokemon from '../data/pokemon.json';
 import PropTypes from 'prop-types';
 import { useState } from 'react';

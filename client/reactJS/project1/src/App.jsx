@@ -30,7 +30,8 @@ class App extends Component {
           onClick={() => {
             this.onChangeClick(this.state.value);
           }}
-          className="border-white ">
+          className="border-white "
+        >
           <p>Click</p>
           {this.state.value}
         </button>
