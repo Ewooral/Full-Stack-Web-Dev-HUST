@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // to generate unique IDs
-import Menu from "../components/Header"
 
 function TodoApp() {
   const [todos, setTodos] = useState([]);
@@ -35,7 +34,6 @@ function TodoApp() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
-      <Menu />
       <h1 className="text-4xl font-bold text-gray-800 mb-4">Todo App</h1>
       <form onSubmit={handleFormSubmit} className="mb-8">
         <input

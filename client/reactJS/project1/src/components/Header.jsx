@@ -1,25 +1,33 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import logo from '../assets/react.svg';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <header className="bg-white shadow">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="bg-gradient-to-r from-blue-500 to-purple-500">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex-shrink-0 flex items-center">
-            <img className="h-8 w-auto" src={logo} alt="Logo" />
+          <div className="flex items-center">
+            <Link to="/" className="text-white font-bold text-xl">
+              My Site
+            </Link>
           </div>
-          <div className="hidden md:block">
-            <div className="ml-4 flex items-center md:ml-6">
-              <button className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded">
-                Log in
-              </button>
-              <button className="ml-4 text-gray-500 hover:text-gray-700">Sign up</button>
-            </div>
+          <div className="flex items-center">
+            <Link to="/search" className="ml-6 text-white hover:text-gray-200">
+              Search
+            </Link>
+            <Link to="/" className="ml-6 text-white hover:text-gray-200">
+              Home
+            </Link>
+            <Link to="/todo" className="ml-6 text-white hover:text-gray-200">
+              Todo App
+            </Link>
+            <Link to="/contact" className="ml-6 text-white hover:text-gray-200">
+              Contact
+            </Link>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

@@ -1,5 +1,6 @@
 import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import { getContacts } from '../contacts';
+import Sidebar from '../components/Sidebar';
 
 export async function loader() {
   const contacts = await getContacts();
@@ -10,6 +11,7 @@ const Root = () => {
   const { contacts } = useLoaderData();
   return (
     <>
+      <Sidebar />
       <div className="sidebar">
         <h1>React Router Contacts</h1>
         <div className="flex space-x-4 ">

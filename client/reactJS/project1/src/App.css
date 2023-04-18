@@ -14,3 +14,6 @@ input[placeholder='Lookup...'] {
   font-size: x-large;
   font-weight: bolder;
 }
+.width-A {
+  width: 100%;
+}
