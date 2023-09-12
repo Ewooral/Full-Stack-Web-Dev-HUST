@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     loader: rootLoader,
     children: [
       {
-        path: 'contact/',
+        path: 'welcome/',
         element: <Welcome />
       },
 

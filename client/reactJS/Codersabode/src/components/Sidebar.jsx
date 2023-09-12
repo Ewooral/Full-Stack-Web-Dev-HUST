@@ -12,7 +12,7 @@ function Sidebar() {
                 <nav className="mt-5 flex-1 px-2 bg-white space-y-1">
                     <NavLink
                         exact
-                        to="/contact"
+                        to="/welcome"
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                         activeClassName="bg-gray-200 text-gray-900">
                         Home
