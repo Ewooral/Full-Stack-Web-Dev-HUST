@@ -10,3 +10,5 @@
     https://www.youtube.com/watch?v=0XQXGx3lLaU&ab_channel=CodinginPublic
 
 
+3. create a symbolic link using ln
+     ln -s <where to link from>  <where to link to>
