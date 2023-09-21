@@ -131,6 +131,19 @@ the project using b abel and start from the `index.js` file
 can respond to. It defines how the server will handle incoming requests
 from the clients and send back appropriate responses.
 
+`HTTP Methods` are actions taken on a specific resurce, often corresponding
+to `create`, `read`, `update` and `delete` (CRUD) operations.
+
+## HTTP Messages
+
+Requests and responses
+
+## HTTP Routes
+
+1. app.get()
+   Each http method takes two parameters:
+   `path and handler` the `handler function `defines actions to be performed on the `path`
+
 ## What is a body parser?
 
 A `body parser` is a software component or module that is used to parse and extract data
