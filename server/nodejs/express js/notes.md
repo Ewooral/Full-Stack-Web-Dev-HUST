@@ -73,13 +73,17 @@ dishRouter.route('/')
   ...
 ```
 
+# EXPRESS PROJECT CONF
+
+# ....................................................
+
 ## Start an Express Project
 
 npm init
 
 Start a project E.g. Express js
 
-##
+## To avoid restarting server always
 
 npm install express nodemon
 
@@ -89,7 +93,7 @@ npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/node
 
 ## configuration file for babel
 
-create a `.babelrc` file at the project root and in the file indiate the presets installed
+create a `.babelrc` file at the project root and in the file indicate the presets installed
 
     {
         "presets": ["@babel/preset-env"]
@@ -97,7 +101,25 @@ create a `.babelrc` file at the project root and in the file indiate the presets
 
 ## Add type to the package.json file
 
-    "type": "module"
+    "type": "module",
+
+This means that we can use es6 syntaxes in our project
+
+## Add a start script to project
+
+    "start": "nodemon --experimental-json-modules --exec babel-node index.js"
+
+`nodemon` references that we will be using nodemon package so that we wouldn't have to restart our server.
+
+-- We add `--experimental-json-modules` in order to be able to load `json` files.
+
+the rest of the commands is telling the server to run
+the project using b abel and start from the `index.js` file
+
+
+## Adding data to your server  
+ 1. Go to `mockaroo.com` and download your mock data 
+ 2. import it into our index.js file
 
 ## What is a body parser?
 
