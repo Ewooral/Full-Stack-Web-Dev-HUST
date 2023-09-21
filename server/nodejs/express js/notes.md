@@ -116,10 +116,20 @@ This means that we can use es6 syntaxes in our project
 the rest of the commands is telling the server to run
 the project using b abel and start from the `index.js` file
 
+## Adding data to your server
 
-## Adding data to your server  
- 1. Go to `mockaroo.com` and download your mock data 
- 2. import it into our index.js file
+1.  Go to `mockaroo.com` and download your mock data
+2.  import it into our index.js file
+
+        import data from "data/mock.json"
+
+3.  Now you can view your data from the server side by logging
+
+## What are HTTP methods and routes?
+
+`Route` refers to a speciic URL endpoint or path that a web application
+can respond to. It defines how the server will handle incoming requests
+from the clients and send back appropriate responses.
 
 ## What is a body parser?
 
