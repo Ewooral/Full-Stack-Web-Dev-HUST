@@ -157,6 +157,8 @@ app.get("/", (req, res) => {
 ```
 
 2. app.post()
+3. app.put()
+4. app.delete()
 
 ## Middleware functions
 
@@ -164,7 +166,7 @@ app.get("/", (req, res) => {
 the final request handler. They sit between the initial request and the final response and can perform various tasks
 such as modifying the request or response objects, executing additional code, or handling errors.
 
-Middleware functions can be used for various purposes, such as authentication, logging, input validation, error handling, and more.
+Middleware functions can be used for various purposes, such as `authentication`, `logging`, `input validation`, `error handling`, and more.
 They are defined using the `app.use()` method in Express and are executed in the order they are defined.
 
 Middleware functions have access to the `request` and `response` objects, as well as a `next` function that is used
@@ -173,15 +175,35 @@ to pass control to the next middleware function in the chain. This allows for th
 Here's an example of a simple middleware function in Express.js that logs the request method and URL:
 
 ```js
-app.use((req, res, next) => {
-  console.log(`Request Method: ${req.method}`);
-  console.log(`Request URL: ${req.url}`);
-  next(); // Pass control to the next middleware function
-});
+app.use(
+  (req, res, next) => {
+    console.log(`Request Method: ${req.method}`);
+    console.log(`Request URL: ${req.url}`);
+    next(); // Pass control to the next middleware function
+  },
+  (req, res) => {
+    console.log(req.params);
+  }
+);
 ```
 
 By using middleware functions, you can modularize your code, improve reusability, and add additional functionality to your Express
 or Node.js application.
+
+Below are some built in middleware functions
+
+1. express.static - serves static assets
+2. express.json - Parses incoming requests with JSON payloads
+3. express.urlencoded - Parses incoming requests with URL-encoded payloads. It is also based on body parser
+
+## Utilizing middleware for errors
+
+```js
+app.route("/class").get((req, res) => {
+  // res.send("Retrieve class info")
+  throw new Error();
+});
+```
 
 ## Serving Static files
 
@@ -227,6 +249,33 @@ and static paths. For example, you can have routes like `/users/:id/posts/:postI
 Overall, routing parameters provide a powerful way to handle dynamic values in the URL and create
 flexible routes in Express or Node.js applications.
 
+## Route Handlers
+
+Route handlers, also known as request handlers or route callbacks, are functions that are responsible for handling incoming requests to specific routes in a web application. In the context of Express or Node.js, route handlers are associated with specific HTTP methods (such as GET, POST, PUT, DELETE) and are executed when a request matches the defined route.
+
+Route handlers are defined using the `app.METHOD()` functions in Express, where `METHOD` represents the HTTP method (e.g., `app.get()` , `app.post()` , `app.put()` , `app.delete()` ). The route handler function takes two parameters: the request ( `req` ) object and the response ( `res` ) object. It can perform various tasks such as accessing request data, interacting with databases, and sending back a response to the client.
+
+Here's an example of a simple route handler in Express.js that handles a GET request to the `/users` route:
+
+```js
+app.get("/users", (req, res) => {
+  // Perform some tasks
+  // Send back a response
+  res.send("This is the users route");
+});
+```
+
+In this example, when a GET request is made to the `/users` route, the provided route handler function is executed. It can perform any necessary operations and send a response back to the client using methods like `res.send()` , `res.json()` , or `res.render()` .
+
+Route handlers provide a way to define the behavior and logic for specific routes in a web application. They allow you to handle different HTTP methods and implement the desired functionality for each route.
+
+## Common Response Methods:
+
+1. Json() sends Json response
+2. send() send the HTTP response
+3. download() Transfers the file as an attachment
+4. redirect() Redirects the user to a specific path
+
 ## What is a body parser?
 
 A `body parser` is a software component or module that is used to parse and extract data
@@ -234,3 +283,28 @@ from the body of an incoming HTTP request. In web development, when a client sen
 to a server through an HTTP request, the body of the request contains the payload or data being sent. The body parser helps to extract and parse this data so that it can be processed and used by
 the server application. It is commonly used to handle data formats such as JSON, XML, or form
 data in various programming languages and frameworks.
+
+## custom Error Handling
+
+```js
+app.get("", (req, res) => {
+  throw new Error();
+});
+// Custom Error Handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res
+    .status(500)
+    .send(
+      "<div style='display: flex; justify-content: center; align-items: center;" +
+        "flex-direction: column; color: #000'>" +
+        "<h1 style='color: red'>Something is broken!</h1>" +
+        "<h2>Try again later</h2>" +
+        "</div> "
+    );
+});
+```
+
+## DEUGGING YOUR App
+
+    DEBUG=express:* node --experimental-json-modules index.js
