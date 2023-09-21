@@ -121,7 +121,9 @@ the project using b abel and start from the `index.js` file
 1.  Go to `mockaroo.com` and download your mock data
 2.  import it into our index.js file
 
-        import data from "data/mock.json"
+```js
+import data from "data/mock.json";
+```
 
 3.  Now you can view your data from the server side by logging
 
@@ -140,9 +142,48 @@ Requests and responses
 
 ## HTTP Routes
 
+Each http method takes two parameters:
+`path and handler` the `handler function `defines actions to be performed on the `path`
+
 1. app.get()
-   Each http method takes two parameters:
-   `path and handler` the `handler function `defines actions to be performed on the `path`
+
+Eg.
+
+```js
+app.get("/", (req, res) => {
+  res.send("Hello, World");
+  res.json(data);
+});
+```
+
+2. app.post()
+
+## Middleware functions
+
+`Middleware functions` in Express or Node.js are functions that are executed in the request-response cycle before
+the final request handler. They sit between the initial request and the final response and can perform various tasks
+such as modifying the request or response objects, executing additional code, or handling errors.
+
+Middleware functions can be used for various purposes, such as authentication, logging, input validation, error handling, and more.
+They are defined using the `app.use()` method in Express and are executed in the order they are defined.
+
+Middleware functions have access to the `request` and `response` objects, as well as a `next` function that is used
+to pass control to the next middleware function in the chain. This allows for the sequential execution of multiple middleware functions.
+
+Here's an example of a simple middleware function in Express.js that logs the request method and URL:
+
+```js
+app.use((req, res, next) => {
+  console.log(`Request Method: ${req.method}`);
+  console.log(`Request URL: ${req.url}`);
+  next(); // Pass control to the next middleware function
+});
+```
+
+By using middleware functions, you can modularize your code, improve reusability, and add additional functionality to your Express
+or Node.js application.
+
+## Serving Static files
 
 ## What is a body parser?
 
