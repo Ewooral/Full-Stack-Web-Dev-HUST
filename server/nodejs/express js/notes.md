@@ -185,6 +185,48 @@ or Node.js application.
 
 ## Serving Static files
 
+Using public folder at the root /
+which means we will not add a route at the beginning of
+`app.use()`
+
+```js
+app.use(express.static("public"));
+```
+
+Using the images folder at the route /images
+
+```js
+app.use("/images", express.static("images"));
+```
+
+## Routing parameters
+
+`Routing parameters`, also known as route parameters or URL parameters, are used in web applications
+to capture dynamic values from the URL. In the context of Express or Node.js, routing parameters are
+defined in the route path and are denoted by a colon followed by the parameter name.
+
+For example, consider the following Express route:
+
+```js
+app.get("/users/:id", (req, res) => {
+  const userId = req.params.id;
+  // Do something with the userId
+});
+```
+
+In this example, the route `/users/:id` captures the value of `id` from the URL. When a request is made
+to a URL like `/users/123` , the value `123` will be available as `req.params.id` within the route handler function.
+
+Routing parameters can be used to create dynamic routes that handle different values based on the URL.
+They can be used to retrieve data from a database, perform specific actions, or customize the response
+based on the captured parameter value.
+
+It's important to note that routing parameters are flexible and can be combined with other route segments
+and static paths. For example, you can have routes like `/users/:id/posts/:postId` to capture multiple parameters from the URL.
+
+Overall, routing parameters provide a powerful way to handle dynamic values in the URL and create
+flexible routes in Express or Node.js applications.
+
 ## What is a body parser?
 
 A `body parser` is a software component or module that is used to parse and extract data

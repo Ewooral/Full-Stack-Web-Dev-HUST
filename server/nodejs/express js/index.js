@@ -5,6 +5,20 @@ const app = express();
 
 const PORT = 3000;
 
+
+// USING THE PUBLIC FOLDER AT THE ROOT OF THE PROJECT
+// which means we will not add a route at the beginning
+app.use(express.static("public"))
+
+
+// Using the images folder at the route /images
+app.use("/images", express.static("images"))
+
+
+
+
+
+
 // GET
 app.get("/", (req, res) => {
     res.json(data)
@@ -28,6 +42,6 @@ app.delete("/delete", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  console.log(data);
+//   console.log(data);
 });
 
