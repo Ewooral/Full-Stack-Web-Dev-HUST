@@ -1,5 +1,6 @@
 import express from "express";
-import data from "./data/mock.json";
+import data from "./data/mock.json" assert { type: 'json' };
+import mongoose from "mongoose"
 
 const app = express();
 
@@ -15,9 +16,11 @@ app.use(express.static("public"))
 app.use("/images", express.static("images"))
 
 // Using express.json and express.urlencoded
-// app.use(express.json())
+app.use(express.json())
 
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: false }))
+
+var dbUrl = 'mongodb+srv://ewooral:OWusu123@cluster0.tua5o.mongodb.net/'
 
 
 // ROUTE CHAINING
@@ -103,6 +106,35 @@ app.use((err, req, res, next) => {
         
     )
 })
+
+let promise = new Promise((resolve, reject) => {
+    let connected = mongoose.connect(dbUrl);
+    if (connected) {
+        resolve(connected)
+    } else {
+        reject()
+    }
+
+})
+promise.then(() => { console.log("MongoDB connected successfully")})
+    .catch((error) => {
+        if (error) {
+        console.log("Something went wrong \n", error)
+    }
+})
+
+
+// const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+// fetchPromise
+// .then( response => {
+// return response.json();
+// })
+// .then( json => {
+// console.log(json[0].name);
+// });
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

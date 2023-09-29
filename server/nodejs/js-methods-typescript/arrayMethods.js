@@ -85,3 +85,33 @@ console.log(arr5.slice(-1).join(""))
 
 let cd = "what are you"
 console.log(cd.slice(-1))
+
+
+
+
+/** 
+ * ! Fools,beware
+ * ? In summary,  map  transforms each element of an array,
+ * * filter  selects elements based on a condition, and  
+ * * reduce  accumulates a single value from the array. 
+ * ? These functions serve different purposes and can be 
+ *  used individually or in combination to manipulate and 
+ * process arrays in JavaScript.
+ * TODO: nothing! Just wanna try it out
+ */
+
+
+const numbers = [1, 2, 3, 4, 5];
+
+// Map: Multiply each element by 2
+const doubled = numbers.map(num => num * 2);
+// Output: [2, 4, 6, 8, 10]
+console.log(doubled)
+// Filter: Keep only even numbers
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+// Output: [2, 4]
+console.log(evenNumbers)
+// Reduce: Sum all the numbers
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+// Output: 15
+console.log(sum)

@@ -305,6 +305,14 @@ app.use((err, req, res, next) => {
 });
 ```
 
-## DEUGGING YOUR App
+## Debugging Your App
 
     DEBUG=express:* node --experimental-json-modules index.js
+
+You can also add it to the package.json file
+
+    "debug": "DEBUG=express:\* node --experimental-json-modules index.js",
+
+## Database Integration
+
+    https://expressjs.com/en/guide/database-integration.html
