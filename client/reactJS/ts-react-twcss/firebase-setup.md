@@ -7,7 +7,7 @@ You can choose to enable or disable the google analytics button
 # Build -> Firestore database
 - click it to create a new database
 - select start in test mode if you're just working on school projects
-- don't focus on location that much. Click on enable
+- don't focus on location that much. Click on enable 
 
 * correct firebase rules complaint emails(`it should not be done in production`)
 - click on firebase database -> rules section 
