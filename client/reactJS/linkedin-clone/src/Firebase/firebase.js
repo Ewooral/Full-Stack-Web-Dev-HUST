@@ -1,4 +1,6 @@
-import firebase from "firebase";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 const firebaseConfig = {
   apiKey: "AIzaSyBy-cDiuuDDeWppreOCSQr2-ModbWr-AtY",
   authDomain: "linkedin-clone-ec96b.firebaseapp.com",
