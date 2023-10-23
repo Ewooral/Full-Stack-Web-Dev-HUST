@@ -16,3 +16,13 @@ const db = firebaseApp.firestore();
 const auth = firebase.auth();
 
 export { db, auth };
+
+/**
+ * import { initializeApp } from 'firebase/app';
+
+const firebaseConfig = {
+  //...
+};
+
+const app = initializeApp(firebaseConfig);
+ */

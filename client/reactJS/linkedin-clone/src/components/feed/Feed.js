@@ -7,12 +7,14 @@ import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import { CalendarViewDayRounded, EventNote } from "@material-ui/icons";
 import Post from "./Post";
 import { db } from "../../Firebase/firebase";
+import firebase from "firebase/compat/app";
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => {
+    db.collection("posts").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
       setPosts(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -23,6 +25,15 @@ const Feed = () => {
   }, []);
   const sendPost = (e) => {
     e.preventDefault();
+    db.collection("posts").add({
+      name: "Elijah Boahen",
+      description: "this is a test post",
+      message: input,
+      photoUrl: '',
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+
+    });
+    setInput("");
   };
 
   return (
@@ -31,7 +42,7 @@ const Feed = () => {
         <div className="feed__input">
           <CreateIcon />
           <form>
-            <input type="text" name="" id="" />
+            <input type="text" value={input} onChange={e => setInput(e.target.value)} />
             <button onClick={sendPost} type="submit">
               Send
             </button>
@@ -51,14 +62,16 @@ const Feed = () => {
       </div>
 
       {/* Posts */}
-      {posts.map((post) => (
-        <Post />
+      {posts.map(({id, data: {name, description, message, photoUrl}}) => (
+        <Post
+          key={id}
+          name={name}
+          description={description}
+          message={message}
+          photoUrl={photoUrl}
+              
+        />
       ))}
-      <Post
-        name="Elijah Boahen"
-        description="This is a test"
-        message="Wow! this worked."
-      />
     </div>
   );
 };
