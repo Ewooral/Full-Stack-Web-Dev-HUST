@@ -102,7 +102,7 @@ print("AT.....................")
 * Negative integers count back from the last item in the array.
 * */
 let speed: number[] = [100, 290]
-print(speed.at(2))
+print(speed.length)
 print(speed[1])
 
 
@@ -139,7 +139,7 @@ print(ages.every((age:number) => {
 
 function whatIsYourName<Type>(name: Type): Type {
  console.log("My name is ", name)
-
+ return name
 }
 
 

@@ -2,7 +2,7 @@
   "name": "js-methods-typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "dist/problem-solving/reverseAString.js",
   "type": "module",
   "scripts": {
     "me": "tsc --watch --preserveWatchOutput"
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.11.16",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.0",
     "typescript": "^4.8.4"
