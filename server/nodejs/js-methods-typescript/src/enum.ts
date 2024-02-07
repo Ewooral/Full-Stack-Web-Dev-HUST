@@ -11,5 +11,9 @@ const IceCream = 2;
 enum Food { Pizza, FriedChicken, IceCream}
 let myFavoriteFood = Food.FriedChicken
 
-alert(myFavoriteFood)
+enum NyNames {firstname, lastname, middlename}
+let nam = NyNames.middlename
+console.log(nam)
+
+console.log(myFavoriteFood)
 

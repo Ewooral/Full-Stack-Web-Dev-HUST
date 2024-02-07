@@ -53,7 +53,7 @@ function reverseStringRecursive(str: string): string{
     if(str === ""){
         return ""
     } else {
-        return reverseStringRecursive(str.substr(1)) + str.charAt(0)
+        return reverseStringRecursive(str.substring(1)) + str.charAt(0)
     }
 }
 
